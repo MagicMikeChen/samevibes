@@ -12,52 +12,7 @@ const Home: NextPage = () => {
       <div className="text-blue-700 text-4xl font-bold py-2 px-4 my-4">
         Next.js + TypeScript + Tailwind
       </div>
-      <div className="main-btn">Some text</div>
-      <div className="flex flex-col gap-1 text-center">
-        <a
-          className="block mx-auto bg-center bg-no-repeat bg-cover w-20 h-20 rounded-full border border-gray-400 shadow-lg"
-          href=""
-          style={{
-            backgroundImage:
-              'url(' +
-              'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg' +
-              ')',
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></a>
-        <p className="font-serif font-semibold">Marina Davinchi</p>
-        <span className="text-sm text-gray-400">
-          New York, NY - Los Angeles, CA
-        </span>
-        <span className="text-sm text-gray-400">
-          https://www.youtube.com/watch?v=dQw4w9WgXcQ
-        </span>
-      </div>
-      <div className="flex justify-center items-center gap-2 my-3">
-        <div className="font-semibold text-center mx-4">
-          <p className="text-black">102</p>
-          <span className="text-gray-400">Posts</span>
-        </div>
-        <div className="font-semibold text-center mx-4">
-          <p className="text-black">102</p>
-          <span className="text-gray-400">Followers</span>
-        </div>
-        <div className="font-semibold text-center mx-4">
-          <p className="text-black">102</p>
-          <span className="text-gray-400">Folowing</span>
-        </div>
-      </div>
-      <div className="grid grid-cols-4 gap-4 xl:grid-cols-6">
-        <div>01</div>
-        <div>01</div>
-        <div>01</div>
-        <div>01</div>
-        <div>01</div>
-        <div>01</div>
-        <div>09</div>
-      </div>
+     
     </>
   );
 };
