@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       <div className="text-blue-700 text-4xl font-bold py-2 px-4 my-4">
         Next.js + TypeScript + Tailwind
       </div>
-      <div className="text-left sm:text-center px-4">Some text</div>
+      <div className="main-btn">Some text</div>
       <div className="flex flex-col gap-1 text-center">
         <a
           className="block mx-auto bg-center bg-no-repeat bg-cover w-20 h-20 rounded-full border border-gray-400 shadow-lg"

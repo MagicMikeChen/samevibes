@@ -19,3 +19,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.main-btn {
+ @apply inline-block px-5 rounded-lg shadow-lg
+}
