@@ -25,5 +25,44 @@ a {
 	border: 1px solid rgba(82, 82, 91, 0.4);
 }
 .cs-border-btn-t-100 {
-  border: 0.5px solid rgba(180, 201, 207, 0.5)
+  border: 0.5px solid rgba(180, 201, 207, 0.5);
 }
+#username {
+  border-bottom: 1px solid white;
+}
+#username:focus {
+  border-bottom: none;
+  border-color: gold;
+}
+@layer base {
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  },
+  [type='text']:focus,
+  select:focus {
+    @apply focus:border-gray-500 focus:ring-transparent;
+  },
+  [type="checkbox"],
+  [type="radio"] {
+    @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
+  }
+
+}
+
+
