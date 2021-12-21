@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: "class",
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -32,7 +33,8 @@ module.exports = {
       lg: '960px',
       xl: '1200px',
       '2xl': '1600px',
-    },
+    }
   },
+  
   plugins: [require('@tailwindcss/forms')],
 }

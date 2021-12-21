@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const PostContent: NextComponentType = () => {
   return (
-    <div className="cs-block-style-grey-900 text-white mb-4">
+    <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 mb-4  dark:text-white">
     <div className="flex content-center items-center text-center py-4">
       <div className="relative  h-20 w-20 2xl:h-32 2xl:w-32">
         <Image

@@ -21,29 +21,40 @@ a {
   box-sizing: border-box;
 }
 
+/* Custom style group */
+.cs-border-btn-t-100 {
+  border: 0.5px solid rgba(180, 201, 207, 0.5);
+}
 .cs-border-zinc-t-600 {
 	border: 1px solid rgba(82, 82, 91, 0.4);
 }
-.cs-border-btn-t-100 {
-  border: 0.5px solid rgba(180, 201, 207, 0.5);
+.cs-navbar-style-light{
+  @apply w-full bg-gray-100 bg-opacity-20 backdrop-blur-2xl
+}
+.cs-navbar-style-dark{
+  @apply w-full bg-gray-900 bg-opacity-20 backdrop-blur-2xl
 }
 .cs-block-style-grey-900 {
   @apply w-full bg-gray-900 bg-opacity-30 rounded-xl backdrop-blur-2xl cs-border-zinc-t-600 py-4 px-4
 }
-.cs-avatar {
-  border-radius: 50%;
+.cs-block-style-white-theme {
+  @apply w-full bg-gray-100 bg-opacity-30 rounded-xl backdrop-blur-2xl border-solid border border-gray-200 py-4 px-4
 }
 .cs-post-scroll-height {
   height: calc(100vh - 60px);
 }
-#username {
-  border-bottom: 1px solid white;
+.cs-gradient-logo-style-light {
+  background: linear-gradient(to right bottom, #753a88 10%, #cc2b5e 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-#username:focus {
-  border-bottom: none;
-  border-color: gold;
+.cs-gradient-logo-style-dark {
+  background: linear-gradient(to right bottom, #ffa751 0%, #ffe259 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 @layer base {
+/* Custom :focus style */
   [type="text"],
   [type="email"],
   [type="url"],
@@ -74,16 +85,10 @@ a {
 
 }
 
-/* Toggle B */
-input:checked ~ .dot {
-  transform: translateX(100%);
-  background-color: #48bb78;
-}
-
+/* Hide Scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
