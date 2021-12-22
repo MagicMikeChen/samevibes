@@ -1,13 +1,21 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import Image from 'next/image';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
 import FriendsList from '../src/components/FriendsList';
 import PostContent from '../src/components/PostContent';
+import { fetchPosts } from '../store/actionCreators/postAction';
 
 const Home: NextPage = () => {
+  // const dispatch = useDispatch();
+  useEffect(() => {
+    console.log('fetchPosts')
+    // dispatch(fetchPosts());
+  }, []);
   return (
     <div className="h-screen bg-gradient-to-r from-red-200 to-sky-200 dark:from-amber-950 dark:to-blue-950 pb-8">
       <Head>
@@ -23,14 +31,12 @@ const Home: NextPage = () => {
             <div className="flex flex-col lg:flex-row justify-between">
               <div className="flex-col lg:w-8/12">
                 <div className="cs-post-scroll-height overflow-y-auto no-scrollbar pt-4">
-                <PostContent></PostContent>
-                <PostContent></PostContent>
-                <PostContent></PostContent>
-                <PostContent></PostContent>
-                <PostContent></PostContent>
-
+                  <PostContent></PostContent>
+                  <PostContent></PostContent>
+                  <PostContent></PostContent>
+                  <PostContent></PostContent>
+                  <PostContent></PostContent>
                 </div>
-
               </div>
               <div className="flex-col lg:w-4/12 h-full pt-4">
                 <FriendsList />
