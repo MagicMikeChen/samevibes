@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 import 'tailwindcss/tailwind.css';
 import { ThemeProvider } from 'next-themes';
 import { Provider } from 'react-redux';
-// import withRedux from 'next-redux-wrapper';
+import { createWrapper } from 'next-redux-wrapper';
 import store from '../store/store';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -16,4 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
      </Provider>
   );
 }
-export default MyApp;
+const makeStore = () => store;
+const wrapper = createWrapper(makeStore)
+
+export default wrapper.withRedux(MyApp);

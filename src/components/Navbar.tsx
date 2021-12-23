@@ -14,7 +14,6 @@ const Navbar: NextComponentType = () => {
     setIsMounted(true);
   }, []);
   const switchTheme = () => {
-    console.log('before theme', theme);
     if (isMounted) {
       setTheme(theme === 'light' ? 'dark' : 'light');
     }

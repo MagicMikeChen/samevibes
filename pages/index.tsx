@@ -11,10 +11,29 @@ import PostContent from '../src/components/PostContent';
 import { fetchPosts } from '../store/actionCreators/postAction';
 
 const Home: NextPage = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
-    console.log('fetchPosts')
-    // dispatch(fetchPosts());
+    dispatch(
+      fetchPosts([
+        {
+          postId: 123,
+          userId: 222,
+          name: '666',
+          type: 0,
+          content: '',
+          loading: false,
+          error: '',
+        },        {
+          postId: 666,
+          userId: 111,
+          name: '000',
+          type: 0,
+          content: '',
+          loading: false,
+          error: '',
+        },
+      ])
+    );
   }, []);
   return (
     <div className="h-screen bg-gradient-to-r from-red-200 to-sky-200 dark:from-amber-950 dark:to-blue-950 pb-8">
