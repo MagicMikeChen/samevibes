@@ -10,8 +10,8 @@ export interface IPost {
   error: string | null;
 }
 export interface IPostReducer {
-  posts: IPost[];
-  post: IPost;
+  posts: IPost[] | null;
+  post: IPost | null;
   loading: boolean;
   error: string | null;
 }
@@ -31,7 +31,7 @@ const initialState = {
   error: null,
 };
 
-export const postReducer = (state = initialState, action: Action): IPostReducer => {
+export const postReducer = (state:IPostReducer = initialState, action: Action):IPostReducer => {
   switch (action.type) {
     case ActionTypes.GET_POST:
       return {

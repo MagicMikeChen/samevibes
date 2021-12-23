@@ -3,12 +3,14 @@ import Head from 'next/head';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { useSelector } from "react-redux";
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
 import FriendsList from '../src/components/FriendsList';
 import PostContent from '../src/components/PostContent';
 import { fetchPosts } from '../store/actionCreators/postAction';
+import { RootState } from '../store/reducers';
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
@@ -35,6 +37,8 @@ const Home: NextPage = () => {
       ])
     );
   }, []);
+  const postsState = useSelector((state: RootState)=> state.postsState);
+
   return (
     <div className="h-screen bg-gradient-to-r from-red-200 to-sky-200 dark:from-amber-950 dark:to-blue-950 pb-8">
       <Head>

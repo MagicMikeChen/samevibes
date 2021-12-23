@@ -5,4 +5,6 @@ export const reducers = combineReducers({
   postsState: postReducer
 })
 
+export type RootState = ReturnType<typeof reducers>
+
 export default reducers

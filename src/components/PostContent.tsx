@@ -1,7 +1,6 @@
 import type { NextComponentType } from 'next';
 import Image from 'next/image';
 
-
 const PostContent: NextComponentType = () => {
   return (
     <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 mb-4  dark:text-white">
@@ -21,7 +20,7 @@ const PostContent: NextComponentType = () => {
         <div>
           <span>Victoria Wirya</span>
           <span className="pl-2">is listening to</span>
-          <span className="pl-1">American idiot</span>
+          <span className="pl-1">A idoit</span>
         </div>
       </div>
     </div>
