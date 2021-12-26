@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
@@ -46,7 +47,13 @@ const Profile: NextPage = () => {
             <div className="flex-col lg:w-5/12">
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
                 <div className="flex flex-col p-4">
-                  <div>Works</div>
+                  <div className="flex">
+                    <FontAwesomeIcon
+                      icon={['fas', 'camera']}
+                      className="icon-common"
+                    ></FontAwesomeIcon>
+                    Work
+                  </div>
                   <div>School</div>
                   <div>Living in</div>
                   <div>Instagram Link</div>
@@ -60,11 +67,11 @@ const Profile: NextPage = () => {
               </div>
             </div>
             <div className="flex-col lg:w-7/12 ml-4">
-            <PostContent></PostContent>
+              <PostContent></PostContent>
 
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
                 <div className="flex flex-col">
-                  <div className='p-4'>Posts</div>
+                  <div className="p-4">Posts</div>
                   <PostContent></PostContent>
                   <div>Like</div>
                   <div>Comment</div>

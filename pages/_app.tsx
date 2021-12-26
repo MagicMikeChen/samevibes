@@ -5,7 +5,15 @@ import { ThemeProvider } from 'next-themes';
 import { Provider } from 'react-redux';
 import { createWrapper } from 'next-redux-wrapper';
 import store from '../store/store';
+import { config, library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 
+/* Font Awesome Config Setting */
+config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
+library.add(fas, fab, far);
+/* */
 function MyApp({ Component, pageProps }: AppProps) {
 
   return (

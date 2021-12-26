@@ -57,6 +57,11 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.icon-common {
+  @apply text-base text-gray-200 w-5 h-5
+}
+
 @layer base {
 /* Custom :focus style */
   [type="text"],
