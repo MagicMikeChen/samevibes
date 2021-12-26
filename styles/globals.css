@@ -22,6 +22,9 @@ a {
 }
 
 /* Custom style group */
+.cs-main-bg-theme {
+  @apply h-screen bg-gradient-to-r from-red-200 to-sky-200 dark:from-amber-950 dark:to-blue-950
+}
 .cs-border-btn-t-100 {
   border: 0.5px solid rgba(180, 201, 207, 0.5);
 }
@@ -34,6 +37,7 @@ a {
 .cs-navbar-style-dark{
   @apply w-full bg-gray-900 bg-opacity-20 backdrop-blur-2xl
 }
+
 .cs-block-style-grey-900 {
   @apply w-full bg-gray-900 bg-opacity-30 rounded-xl backdrop-blur-2xl cs-border-zinc-t-600 py-4 px-4
 }
