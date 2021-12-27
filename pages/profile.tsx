@@ -2,12 +2,15 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import React, { useRef, useState } from 'react';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
 import PostContent from '../src/components/PostContent';
 
 const Profile: NextPage = () => {
+
+
   return (
     <div className="cs-main-bg-theme pb-8 fixed">
       <Head>
@@ -16,7 +19,33 @@ const Profile: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
-      <div className="container mx-auto overflow-y-auto h-full no-scrollbar">
+      {/* <nav
+        aria-label="Breadcrumb"
+        className="cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-16 fixed z-10"
+      >
+        <div className={`${ isStickyNav ? '' : 'hidden' }`}>
+          <div className={`text-center my-4 flex flex-row`}>
+            <div className="flex items-center mx-2 cs-btn-border-style">
+              <FontAwesomeIcon
+                icon={['fas', 'user-friends']}
+                className="icon-common mr-2"
+              ></FontAwesomeIcon>
+              <div></div>
+              <div className="">Add Friend</div>
+            </div>{' '}
+            <div className="flex items-center mx-2 cs-btn-border-style">
+              <FontAwesomeIcon
+                icon={['fas', 'comments']}
+                className="icon-common mr-2"
+              ></FontAwesomeIcon>
+              <div></div>Message
+            </div>
+          </div>
+        </div>
+      </nav> */}
+      <div
+        className="container mx-auto overflow-y-auto h-full no-scrollbar "
+      >
         <div className="flex-col pt-4">
           {/* <ProfileForm /> */}
           <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white mb-4 flex-col">
@@ -34,7 +63,7 @@ const Profile: NextPage = () => {
               </div>
               <div className="text-center mt-2">Victoria Wirya</div>
 
-              <div className="text-center my-4 flex flex-row">
+              <div className={`text-center my-4 flex flex-row`}>
                 <div className="flex items-center mx-2 cs-btn-border-style">
                   <FontAwesomeIcon
                     icon={['fas', 'user-friends']}
@@ -55,15 +84,14 @@ const Profile: NextPage = () => {
           </div>
           <div className="flex flex-col lg:flex-row justify-between mt-2">
             <div className="flex-col lg:w-5/12">
-              <div className='cs-block-style-white-theme dark:cs-block-style-grey-900'>
-              <div className="text-center w-80 mt-4">
-                My name is Victoria Wirya, and I am a recent computer science
-                graduate from Stanford University.
-              </div>
+              <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
+                <div className="text-center w-80 mt-4">
+                  My name is Victoria Wirya, and I am a recent computer science
+                  graduate from Stanford University.
+                </div>
               </div>
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
                 <div className="flex flex-col p-4">
-
                   <div className="flex items-center">
                     <FontAwesomeIcon
                       icon={['fas', 'briefcase']}
@@ -138,9 +166,11 @@ const Profile: NextPage = () => {
                   </div>
                   <div className="mb-4 px-4">
                     <PostContent></PostContent>
-                  </div>                  <div className="mb-4 px-4">
+                  </div>{' '}
+                  <div className="mb-4 px-4">
                     <PostContent></PostContent>
-                  </div>                  <div className="mb-4 px-4">
+                  </div>{' '}
+                  <div className="mb-4 px-4">
                     <PostContent></PostContent>
                   </div>
                 </div>
