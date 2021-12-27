@@ -2,15 +2,31 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import { Waypoint } from 'react-waypoint';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
 import PostContent from '../src/components/PostContent';
 
 const Profile: NextPage = () => {
-
-
+  const scrollToTop = () =>{
+    document.getElementById("scroller").scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    })
+  };
+  
+  const [isSticky, setSticky] = useState(false);
+  const handleEnter = () => {
+    setSticky(true);
+  };
+  const handleLeave = () => {
+    setSticky(false);
+  };
   return (
     <div className="cs-main-bg-theme pb-8 fixed">
       <Head>
@@ -19,13 +35,29 @@ const Profile: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
-      {/* <nav
+      <nav
         aria-label="Breadcrumb"
-        className="cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-16 fixed z-10"
+        className={`cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-2 lg:px-16 fixed z-10 ${
+          isSticky ? 'hidden' : ''
+        }`}
       >
-        <div className={`${ isStickyNav ? '' : 'hidden' }`}>
-          <div className={`text-center my-4 flex flex-row`}>
-            <div className="flex items-center mx-2 cs-btn-border-style">
+        <div className='flex' onClick={scrollToTop}>
+          <div className="relative h-12 w-12 my-1 items-center justify-center content-center">
+            <Image
+              className="rounded-full"
+              src="/img/g2.jpg"
+              alt="me"
+              layout="fill"
+              // width={120}
+              // height={120}
+              objectFit="cover"
+            />
+          </div>
+          <div className='flex items-center ml-4'>Victoria Wirya</div>
+        </div>
+        <div>
+          <div className={`my-2 flex flex-row justify-between`}>
+            <div className="flex mx-2 cs-btn-border-style">
               <FontAwesomeIcon
                 icon={['fas', 'user-friends']}
                 className="icon-common mr-2"
@@ -42,10 +74,8 @@ const Profile: NextPage = () => {
             </div>
           </div>
         </div>
-      </nav> */}
-      <div
-        className="container mx-auto overflow-y-auto h-full no-scrollbar "
-      >
+      </nav>
+      <div id="scroller" className="container mx-auto overflow-y-auto h-full no-scrollbar">
         <div className="flex-col pt-4">
           {/* <ProfileForm /> */}
           <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white mb-4 flex-col">
@@ -62,7 +92,7 @@ const Profile: NextPage = () => {
                 />
               </div>
               <div className="text-center mt-2">Victoria Wirya</div>
-
+              <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
               <div className={`text-center my-4 flex flex-row`}>
                 <div className="flex items-center mx-2 cs-btn-border-style">
                   <FontAwesomeIcon
@@ -82,10 +112,11 @@ const Profile: NextPage = () => {
               </div>
             </div>
           </div>
+
           <div className="flex flex-col lg:flex-row justify-between mt-2">
             <div className="flex-col lg:w-5/12">
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
-                <div className="text-center w-80 mt-4">
+                <div className="text-center w-full p-4">
                   My name is Victoria Wirya, and I am a recent computer science
                   graduate from Stanford University.
                 </div>

@@ -36,16 +36,16 @@ a {
   @apply border-solid border rounded-full border-gray-400 py-2 px-4 hover:border-transparent hover:bg-gray-300 hover:bg-opacity-50 dark:hover:bg-gray-400 dark:hover:bg-opacity-20 cursor-pointer transition
 }
 .cs-navbar-style-light{
-  @apply w-full bg-gray-100 bg-opacity-20 backdrop-blur-2xl
+  @apply w-full bg-gray-100 bg-opacity-50 backdrop-blur-lg
 }
 .cs-navbar-style-dark{
-  @apply w-full bg-gray-900 bg-opacity-20 backdrop-blur-2xl
+  @apply w-full bg-gray-900 bg-opacity-50 backdrop-blur-lg
 }
 .cs-block-style-grey-900 {
-  @apply w-full bg-gray-900 bg-opacity-30 rounded-xl backdrop-blur-2xl cs-border-zinc-t-600
+  @apply w-full bg-gray-900 bg-opacity-30 rounded-xl backdrop-blur-lg cs-border-zinc-t-600
 }
 .cs-block-style-white-theme {
-  @apply w-full bg-gray-100 bg-opacity-30 rounded-xl backdrop-blur-2xl border-solid border border-gray-200
+  @apply w-full bg-gray-100 bg-opacity-30 rounded-xl backdrop-blur-lg border-solid border border-gray-200
 }
 .cs-post-scroll-height {
   height: calc(100vh - 60px);
