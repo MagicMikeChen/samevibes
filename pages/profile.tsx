@@ -41,7 +41,7 @@ const Profile: NextPage = () => {
           isSticky ? 'hidden' : ''
         }`}
       >
-        <div className='flex' onClick={scrollToTop}>
+        <div className='flex cursor-pointer' onClick={scrollToTop}>
           <div className="relative h-12 w-12 my-1 items-center justify-center content-center">
             <Image
               className="rounded-full"
