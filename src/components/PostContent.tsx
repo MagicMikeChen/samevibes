@@ -1,7 +1,12 @@
 import type { NextComponentType } from 'next';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import { translateMaker } from '../utils';
 
 const PostContent: NextComponentType = () => {
+  const router = useRouter();
+  const t = translateMaker(router)
   return (
     <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white divide-y divide-gray-300 dark:divide-gray-500">
       <div className='px-4 py-4'>
@@ -20,7 +25,7 @@ const PostContent: NextComponentType = () => {
         <div className="flex-col justify-start text-left pl-4">
           <div>
             <span>Victoria Wirya</span>
-            <span className="pl-2">is listening to</span>
+            <span className="pl-2">{t['txt-listen']}</span>
             <span className="pl-1">A idoit</span>
           </div>
         </div>
@@ -48,10 +53,10 @@ const PostContent: NextComponentType = () => {
       </div>
       <div className="flex justify-center">
         <div className="cs-post-btn-style rounded-bl-xl">
-          Like
+          {t['txt-like']}
         </div>
         <div className="cs-post-btn-style rounded-br-xl">
-          Comment
+          {t['txt-comment']}
         </div>
       </div>
     </div>

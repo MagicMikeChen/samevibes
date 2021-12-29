@@ -1,18 +1,18 @@
 export const MenuItems = [
   {
-    label: 'Home',
+    label: 'txt-home',
     url: "/",
     icon: '',
     active: true,
   },
   {
-    label: 'Profile',
+    label: 'txt-profile',
     url: "/profile",
     icon: '',
     active: false,
   },
   {
-    label: 'Nearby',
+    label: 'txt-nearby',
     url: "/nearby",
     icon: '',
     active: false,

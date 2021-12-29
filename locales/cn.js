@@ -1,0 +1,17 @@
+export const cn = {
+  'txt-home': '首頁',
+  'txt-info': '簡介',
+  'txt-like': '讚',
+  'txt-posts': '貼文',
+  'txt-friend': '朋友',
+  'txt-listen': '正在聽',
+  'txt-nearby': '附近活動',
+  'txt-comment': '留言',
+  'txt-message': '發送訊息',
+  'txt-profile': '個人頁',
+  'txt-darkmode': '深色模式',
+  'txt-add-friend': '加朋友',
+  'txt-request-sent': '邀請已發送',
+  'txt-favorite-album': '收藏專輯',
+  'txt-recommend-friend': '推薦好友',
+};

@@ -12,7 +12,10 @@ import PostContent from '../src/components/PostContent';
 import { fetchPosts } from '../store/actionCreators/postAction';
 import { RootState } from '../store/reducers';
 
+
 const Home: NextPage = () => {
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(

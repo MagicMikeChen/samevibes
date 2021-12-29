@@ -6,9 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { MenuItems } from '../../common';
 import { useTheme } from 'next-themes';
+import {translateMaker, changeLanguage} from '../utils';
+
 
 const Navbar: NextComponentType = () => {
   const router = useRouter();
+  const { locale } = router;
+  const t = translateMaker(router)
+
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
@@ -30,7 +35,7 @@ const Navbar: NextComponentType = () => {
             Music Body
           </div>
         </div>
-        <div className='flex'>
+        <div className="flex">
           <div className="flex lg:hidden items-center content-center justify-center">
             <FontAwesomeIcon
               icon={['fas', 'bars']}
@@ -56,7 +61,7 @@ const Navbar: NextComponentType = () => {
                                 : 'text-gray-400 dark:text-gray-400'
                             }`}
                           >
-                            {item.label}
+                            {t[item.label]}
                           </a>
                         </Link>
                       </div>
@@ -76,9 +81,20 @@ const Navbar: NextComponentType = () => {
                 <div className="absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition dark:translate-x-full dark:bg-green-600"></div>
               </div>
               <div className="ml-3 text-gray-600 dark:text-white font-medium">
-                Dark theme
+                {t['txt-darkmode']}
               </div>
             </label>
+
+            <div className="flex items-center justify-center cursor-pointer">
+              <select
+                onChange={(e) => {changeLanguage(e,router)}}
+                defaultValue={locale}
+                className="cs-border-btn-t-100 w-24 rounded-xl text-md font-medium text-gray-600 dark:text-gray-400 bg-transparent ml-4"
+              >
+                <option value="en">En</option>
+                <option value="cn">中文</option>
+              </select>
+            </div>
           </div>
         </div>
       </nav>

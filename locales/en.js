@@ -1,0 +1,17 @@
+export const en = {
+  'txt-home': 'Home',
+  'txt-info': 'Info',
+  'txt-like': 'Like',
+  'txt-posts': 'Posts',
+  'txt-friend': 'Friend',
+  'txt-listen': 'is listening to',
+  'txt-nearby': 'Nearby',
+  'txt-comment': 'Comment',
+  'txt-message': 'Message',
+  'txt-profile': 'Profile',
+  'txt-darkmode': 'Dark Mode',
+  'txt-add-friend': 'Add Friend',
+  'txt-request-sent': 'Request Sent',
+  'txt-favorite-album': 'Favorite Albums',
+  'txt-recommend-friend': 'Recommend Friend',
+};

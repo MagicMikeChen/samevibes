@@ -4,12 +4,18 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
+import { useRouter } from 'next/router';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
 import PostContent from '../src/components/PostContent';
+import { translateMaker } from '../src/utils';
+
 
 const Profile: NextPage = () => {
+  const router = useRouter();
+  const t = translateMaker(router)
+
   const scrollToTop = () =>{
     document.getElementById("scroller").scrollTo({
       top: 0,
@@ -57,20 +63,20 @@ const Profile: NextPage = () => {
         </div>
         <div>
           <div className={`my-2 flex flex-row justify-between`}>
-            <div className="flex mx-2 cs-btn-border-style">
+            <div className="flex mx-2 cs-btn-border-style items-center">
               <FontAwesomeIcon
                 icon={['fas', 'user-friends']}
-                className="icon-common mr-2"
+                className="icon-common mr-2 "
               ></FontAwesomeIcon>
               <div></div>
-              <div className="">Add Friend</div>
+              <div className="">{t['txt-add-friend']}</div>
             </div>{' '}
-            <div className="flex items-center mx-2 cs-btn-border-style">
+            <div className="flex mx-2 cs-btn-border-style items-center">
               <FontAwesomeIcon
                 icon={['fas', 'comments']}
                 className="icon-common mr-2"
               ></FontAwesomeIcon>
-              <div></div>Message
+              <div></div>{t['txt-message']}
             </div>
           </div>
         </div>
@@ -100,14 +106,14 @@ const Profile: NextPage = () => {
                     className="icon-common mr-2"
                   ></FontAwesomeIcon>
                   <div></div>
-                  <div className="">Add Friend</div>
+                  <div className="">{t['txt-add-friend']}</div>
                 </div>{' '}
                 <div className="flex items-center mx-2 cs-btn-border-style">
                   <FontAwesomeIcon
                     icon={['fas', 'comments']}
                     className="icon-common mr-2"
                   ></FontAwesomeIcon>
-                  <div></div>Message
+                  <div></div>{t['txt-message']}
                 </div>
               </div>
             </div>
@@ -162,7 +168,7 @@ const Profile: NextPage = () => {
               </div>
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 mt-4">
                 <div className="flex flex-col p-4">
-                  <div>Favorite Albums</div>
+                  <div>{t['txt-favorite-album']}</div>
                   <div>
                     <div className="grid gap-4 grid-cols-3 grid-rows-3 mt-4">
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, i) => {
@@ -191,7 +197,7 @@ const Profile: NextPage = () => {
             <div className="flex-col lg:w-7/12 mt-4 lg:mt-0 lg:ml-4 mb-8">
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
                 <div className="flex flex-col">
-                  <div className="p-4">Posts</div>
+                  <div className="p-4">{t['txt-posts']}</div>
                   <div className="mb-4 px-4">
                     <PostContent></PostContent>
                   </div>
