@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const percentageWidth = require('tailwindcss-percentage-width'); // load the plugin
+
 module.exports = {
   darkMode: "class",
   content: [
@@ -35,6 +38,5 @@ module.exports = {
       '2xl': '1500px',
     }
   },
-  
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), percentageWidth],
 }

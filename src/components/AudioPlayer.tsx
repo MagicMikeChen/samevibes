@@ -118,7 +118,7 @@ const Player: React.FC = () => {
         </div>
         <div>Playing: {title}</div>
         <div className="flex items-center ml-8 w-2/3 bg-slate-600 h-4">
-          <div className={`bg-slate-300 w-${20} h-3`}></div>
+          <div className={`bg-slate-300 w-50% h-3`}></div>
         </div>
       </div>
     </div>

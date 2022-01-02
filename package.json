@@ -23,7 +23,8 @@
     "react-waypoint": "^10.1.0",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "tailwindcss-percentage-width": "^1.0.1"
   },
   "devDependencies": {
     "@types/next-redux-wrapper": "^3.0.0",
