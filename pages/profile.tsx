@@ -10,7 +10,7 @@ import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
 import PostContent from '../src/components/PostContent';
 import { translateMaker } from '../src/utils';
-
+import AudioPlayer from '../src/components/AudioPlayer';
 
 const Profile: NextPage = () => {
   const router = useRouter();
@@ -41,6 +41,7 @@ const Profile: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
+      <AudioPlayer></AudioPlayer>
       <nav
         aria-label="Breadcrumb"
         className={`cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-2 lg:px-16 fixed z-10 ${
