@@ -10,21 +10,23 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
+import Layout from '../src/components/Layout';
 /* Font Awesome Config Setting */
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 library.add(fas, fab, far);
 /* */
 function MyApp({ Component, pageProps }: AppProps) {
-
   return (
     <Provider store={store}>
-      <ThemeProvider attribute="class">
-        <Component {...pageProps} />
-      </ThemeProvider>
-     </Provider>
+      <Layout>
+        <ThemeProvider attribute="class">
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Layout>
+    </Provider>
   );
 }
 const makeStore = () => store;
-const wrapper = createWrapper(makeStore)
+const wrapper = createWrapper(makeStore);
 
 export default wrapper.withRedux(MyApp);
