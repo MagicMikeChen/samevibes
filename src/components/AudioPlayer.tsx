@@ -11,7 +11,7 @@ const AudioPlayer: React.FC = () => {
   const [trackStyling, setTrackStyling] = useState('');
 
   // Destructure for conciseness
-  const { title, artist, type, image, audioSrc } = (audioTracks ? audioTracks[trackIndex] : {title:'', artist:'', type:'', image:'', audioSrc:'' });
+  const { audioTitle, artist, audioType, audioImage, audioSrc } = (audioTracks ? audioTracks[trackIndex] : {audioTitle:'', artist:'', audioType:'', audioImage:'', audioSrc:'' });
 
   // Refs
   const audioRef = useRef<HTMLAudioElement | undefined>(
@@ -155,7 +155,7 @@ const AudioPlayer: React.FC = () => {
             className="icon-common mr-2 "
           ></FontAwesomeIcon>
         </div>
-        <div className="min-w-max">{title && title}</div>
+        <div className="min-w-max">{audioTitle && audioTitle}</div>
         <div className="flex items-center mx-8 w-full mt-1">
           <input
             type="range"

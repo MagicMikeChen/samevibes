@@ -32,7 +32,7 @@ const Navbar: NextComponentType = () => {
       >
         <div className="py-4">
           <div className="text-xl font-semibold cs-gradient-logo-style-light dark:cs-gradient-logo-style-dark">
-            Music Body
+            Same Vibes
           </div>
         </div>
         <div className="flex">

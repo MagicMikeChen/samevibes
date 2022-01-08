@@ -1,5 +1,5 @@
 import { Action, ActionTypes } from '../actionTypes';
-import { IPostReducer } from './reducerTypes'
+import { IUserReducer } from './reducerTypes'
 
 const initialState = {
   posts: [
@@ -40,14 +40,25 @@ const initialState = {
     loading: false,
     error: '',
   },
+  userId: 'string',
+  userName: 'string',
+  userAvatar: 'string',
+  userIntro: 'string',
+  userJob: 'string',
+  userEducation: 'string',
+  userLocation: 'string',
+  userIg: 'string',
+  userRelationship: 'string',
+  userCollections: [],
+  friendStatus: 0,
   loading: false,
   error: null,
 };
 
-export const postReducer = (
-  state: IPostReducer = initialState,
+export const userReducer = (
+  state: IUserReducer = initialState,
   action: Action
-): IPostReducer => {
+): IUserReducer => {
   switch (action.type) {
     case ActionTypes.GET_POST:
       return {
