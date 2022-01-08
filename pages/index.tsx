@@ -11,55 +11,15 @@ import FriendsList from '../src/components/FriendsList';
 import PostContent from '../src/components/PostContent';
 import { fetchPosts } from '../store/actionCreators/postAction';
 import { RootState } from '../store/reducers';
-
+import { demoPosts, demoFriendList } from '../common';
 
 const Home: NextPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPosts(demoPosts));
+  }, [dispatch]);
 
-
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(
-  //     fetchPosts([
-  //       {
-  //         postId: '1234',
-  //         userId: '23456',
-  //         userName: 'J',
-  //         userAvatar: '',
-  //         postType: '',
-  //         contentObj: {
-  //           contentId: 'string',
-  //           contentTitle: 'string',
-  //           contentPhoto: 'string',
-  //           contentURL: 'string',
-  //           contentType: 'string',
-  //         },
-  //         isLiked: 0,
-  //         comments:[],
-  //         loading: false,
-  //         error: '',
-  //       },
-  //       {
-  //         postId: '1234',
-  //         userId: '23456',
-  //         userName: 'J',
-  //         userAvatar: '',
-  //         postType: '',
-  //         contentObj: {
-  //           contentId: 'string',
-  //           contentTitle: 'string',
-  //           contentPhoto: 'string',
-  //           contentURL: 'string',
-  //           contentType: 'string',
-  //         },
-  //         isLiked: 0,
-  //         comments:[],
-  //         loading: false,
-  //         error: '',
-  //       },
-  //     ])
-  //   );
-  // }, []);
-  // const postsState = useSelector((state: RootState) => state.postsState);
+  const postsState = useSelector((state: RootState) => state.postsState);
 
   return (
     <div className="cs-main-bg-theme fixed">
@@ -72,33 +32,24 @@ const Home: NextPage = () => {
       <div className="container mx-auto overflow-y-auto lg:overflow-y-hidden h-full no-scrollbar">
         <div className="flex-col">
           {/* <ProfileForm/> */}
-            <div className="flex flex-col-reverse lg:flex-row justify-between">
-              <div className="flex-col lg:w-8/12">
-                <div className="lg:cs-post-scroll-height lg:overflow-y-auto no-scrollbar pt-4 pb-28 lg:pb-16">
-                  <div className="mb-4">
-                    <PostContent></PostContent>
-                  </div>{' '}
-                  <div className="mb-4">
-                    <PostContent></PostContent>
-                  </div>{' '}
-                  <div className="mb-4">
-                    <PostContent></PostContent>
-                  </div>{' '}
-                  <div className="mb-4">
-                    <PostContent></PostContent>
-                  </div>{' '}
-                  <div className="mb-4">
-                    <PostContent></PostContent>
-                  </div>{' '}
-                  <div className="mb-4">
-                    <PostContent></PostContent>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-col lg:w-4/12 h-full pt-4">
-                <FriendsList />
+          <div className="flex flex-col-reverse lg:flex-row justify-between">
+            <div className="flex-col lg:w-8/12">
+              <div className="lg:cs-post-scroll-height lg:overflow-y-auto no-scrollbar pt-4 pb-28 lg:pb-16">
+                {postsState.posts.map((postItem) => {
+                  return (
+                    <div key={postItem.postId} className="mb-4">
+                      <PostContent postItem={postItem}></PostContent>
+                    </div>
+                  );
+                })}
               </div>
             </div>
+            <div className="flex-col lg:w-4/12 h-full pt-4">
+              <div className="mb-4">
+                <FriendsList></FriendsList>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

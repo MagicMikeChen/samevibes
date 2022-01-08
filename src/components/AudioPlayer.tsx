@@ -116,7 +116,7 @@ const AudioPlayer: React.FC = () => {
     <div className="p-4 cs-navbar-style-light dark:cs-navbar-style-dark">
       <div className="flex items-center">
       <div
-          className="flex mx-1 items-center cursor-pointer"
+          className="hidden lg:flex mx-1 items-center cursor-pointer"
           onClick={toPrevTrack}
         >
           <FontAwesomeIcon
@@ -147,7 +147,7 @@ const AudioPlayer: React.FC = () => {
         )}
 
         <div
-          className="flex mx-1 items-center cursor-pointer"
+          className="hidden lg:flex mx-1 items-center cursor-pointer"
           onClick={toNextTrack}
         >
           <FontAwesomeIcon

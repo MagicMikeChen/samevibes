@@ -197,7 +197,7 @@ const Profile: NextPage = () => {
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
                 <div className="flex flex-col">
                   <div className="p-4">{t['txt-posts']}</div>
-                  <div className="mb-4 px-4">
+                  {/* <div className="mb-4 px-4">
                     <PostContent></PostContent>
                   </div>
                   <div className="mb-4 px-4">
@@ -208,7 +208,7 @@ const Profile: NextPage = () => {
                   </div>{' '}
                   <div className="mb-4 px-4">
                     <PostContent></PostContent>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
