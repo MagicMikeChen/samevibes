@@ -156,7 +156,7 @@ const AudioPlayer: React.FC = () => {
           ></FontAwesomeIcon>
         </div>
         <div className="min-w-max">{audioTitle && audioTitle}</div>
-        <div className="flex items-center mx-8 w-full mt-1">
+        <div className="flex items-center mx-4 lg:mx-8 w-full mt-1">
           <input
             type="range"
             value={trackProgress}
@@ -169,6 +169,14 @@ const AudioPlayer: React.FC = () => {
             onKeyUp={onScrubEnd}
             style={{ background: trackStyling }}
           />
+        </div>
+        <div
+          className="flex items-center cursor-pointer border-solid border border-gray-100 rounded-full p-1"
+        >
+          <FontAwesomeIcon
+            icon={['fas', 'times']}
+            className="icon-common"
+          ></FontAwesomeIcon>
         </div>
       </div>
     </div>

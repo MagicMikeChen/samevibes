@@ -57,17 +57,17 @@ const initialState = {
 
 export const userReducer = (
   state: IUserReducer = initialState,
-  action: Action
+  action: ActionTypes
 ): IUserReducer => {
   switch (action.type) {
-    case ActionTypes.GET_POST:
+    case Action.GET_POST:
       return {
         ...state,
         post: action.payload,
         loading: false,
         error: null,
       };
-    case ActionTypes.GET_POSTS:
+    case Action.GET_POSTS:
       return {
         ...state,
         posts: action.payload,

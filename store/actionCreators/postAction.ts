@@ -1,18 +1,18 @@
 import { Action, ActionTypes } from '../actionTypes';
-import { IPost } from '../reducers/postReducer';
+import { IPost } from '../reducers/reducerTypes';
 import { Dispatch } from 'redux';
 
-export const fetchPost = (post: IPost) => async (dispatch: Dispatch<Action>) => {
+export const fetchPost = (post: IPost) => async (dispatch: Dispatch<ActionTypes>) => {
   dispatch({
-    type: ActionTypes.GET_POST,
+    type: Action.GET_POST,
     payload: post,
   });
 };
-export const fetchPosts = (posts: IPost[]) => async (dispatch: Dispatch<Action>) => {
+export const fetchPosts = (posts: IPost[]) => async (dispatch: Dispatch<ActionTypes>) => {
   // const res = await axios.get('api/posts');
   // const posts = [{id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}]
   dispatch({
-    type: ActionTypes.GET_POSTS,
+    type: Action.GET_POSTS,
     payload: posts,
   });
 };

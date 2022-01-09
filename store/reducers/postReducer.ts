@@ -52,17 +52,17 @@ const initialState = {
 
 export const postReducer = (
   state: IPostReducer = initialState,
-  action: Action
+  action: ActionTypes
 ): IPostReducer => {
   switch (action.type) {
-    case ActionTypes.GET_POST:
+    case Action.GET_POST:
       return {
         ...state,
         post: action.payload,
         loading: false,
         error: null,
       };
-    case ActionTypes.GET_POSTS:
+    case Action.GET_POSTS:
       return {
         ...state,
         posts: action.payload,

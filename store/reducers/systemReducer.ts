@@ -6,18 +6,26 @@ const initialState = {
   isLogin: false,
   userToken: '',
   isShowPlayer: false,
+  audioTrackObj:{
+    audioSrc: '',
+    audioTitle: '',
+    audioImage: '',
+    album: '',
+    artist: '',
+    audioType: '',
+  },
   error:  null
 };
 
 export const systemReducer = (
   state: ISystemReducer = initialState,
-  action: Action
+  action: ActionTypes
 ): ISystemReducer => {
   switch (action.type) {
-    case ActionTypes.GET_POST:
+    case Action.SET_AUDIO_TRACK:
       return {
         ...state,
-        isLogin: action.payload,
+        audioTrackObj: action.payload,
         error: null,
       };
     default:
