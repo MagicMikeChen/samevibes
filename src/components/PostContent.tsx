@@ -24,41 +24,68 @@ const PostContent = (props: PostContentProps) => {
                 src={userAvatar}
                 alt="me"
                 layout="fill"
-                // width={120}
-                // height={120}
                 objectFit="cover"
               />
             )}
           </div>
           <div className="flex-col justify-start text-left pl-4">
-            <div className="lg:text-lg">
+            {postType === 'album' ? <div className="lg:text-lg">
               <span className="">{userName}</span>
               <span className="pl-2">{t['txt-listen']}</span>
               <span className="pl-1">{contentObj.audioTitle}</span>
-            </div>
+            </div> : <div className="lg:text-lg">
+              <span className="">{userName}</span>
+              <span className="pl-2">will attend</span>
+              <span className="pl-1">{contentObj.contentTitle}</span>
+            </div>}
           </div>
         </div>
-        <div className="flex pb-4">
-          <div className="flex items-center pl-20 lg:pl-24 2xl:pl-32">
-            <div className="relative h-20 w-20 lg:h-24 lg:w-24 2xl:h-28 2xl:w-28 min-w-min aspect-square">
-              {contentObj.audioImage.length > 0 && (
-                <Image
-                  className="rounded-md"
-                  src={`/img/${contentObj.audioImage}.jpeg`}
-                  alt="me"
-                  layout="fill"
-                  // width={120}
-                  // height={120}
-                  objectFit="cover"
-                />
-              )}
-            </div>
-            <div className="pl-4 lg:text-lg">
-              <div>{contentObj.audioTitle}</div>
-              <div className="text-gray-400">{contentObj.album}</div>
+        {postType === 'album' ? (
+          <div className="flex pb-4">
+            <div className="flex items-center pl-20 lg:pl-24 2xl:pl-32">
+              <div className="relative h-20 w-20 lg:h-24 lg:w-24 2xl:h-28 2xl:w-28 min-w-min aspect-square cursor-pointer group">
+                <div className="text-white opacity-0 group-hover:opacity-100 absolute left-[calc(55%_-_1rem)] top-[calc(52%_-_1rem)] z-10">
+                  <FontAwesomeIcon
+                    icon={['fas', 'play-circle']}
+                    className="icon-common  w-6 h-6 mr-2"
+                  ></FontAwesomeIcon>
+                  {/* <FontAwesomeIcon
+                  icon={['fas', 'pause-circle']}
+                  className="icon-common  w-6 h-6 mr-2"
+                ></FontAwesomeIcon> */}
+                </div>
+
+                {contentObj.audioImage.length > 0 && (
+                  <Image
+                    className="rounded-md"
+                    src={`/img/${contentObj.audioImage}.jpeg`}
+                    alt="me"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                )}
+              </div>
+              <div className="pl-4 lg:text-lg">
+                <div>{contentObj.audioTitle}</div>
+                <div className="text-gray-400">{contentObj.album}</div>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="pb-2 relative">
+            <div className="w-full aspect-video">
+                {contentObj.contentPhoto.length > 0 && (
+                  <Image
+                    src={`/img/${contentObj.contentPhoto}.jpg`}
+                    sizes="100%"
+                    alt="content"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                )}
+            </div>
+          </div>
+        )}
       </div>
       <div className="flex justify-center">
         <div className="cs-post-btn-style rounded-bl-xl flex justify-center text-lg">

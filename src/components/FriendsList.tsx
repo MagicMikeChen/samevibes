@@ -44,7 +44,7 @@ const FriendsList = () => {
                       objectFit="cover"
                     />
                   </div>
-                  <div className="flex-col justify-start text-left pl-4">
+                  <div className="flex-col justify-start text-left pl-4 text-base md:text-lg">
                     <div>{listItem.userName} also likes</div>
                     <div className="flex flex-wrap py-1 text-sm text-gray-100 dark:text-white">
                       <div className="flex justify-center items-center content-center text-center px-1 bg-orange-400 rounded-full mr-1 mb-1">
@@ -59,7 +59,7 @@ const FriendsList = () => {
                     </div>
                   </div>
                 </div>
-                <div className="text-2xl py-1">{listItem.matchRate}% Match</div>
+                <div className="text-xl md:text-2xl py-1">{listItem.matchRate}% Match</div>
               </div>
             );
           })}
