@@ -1,9 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { useSelector } from 'react-redux';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';

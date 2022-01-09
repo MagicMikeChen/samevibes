@@ -7,7 +7,7 @@ export interface IComment {
 }
 
 export interface IAudioTrack {
-  audioSrc: string | null;
+  audioSrc?: string | null;
   audioTitle?: string | null;
   audioImage?: string | null;
   album?: string | null;
@@ -69,6 +69,7 @@ export interface ISystemReducer {
   isLogin: boolean;
   userToken: string;
   isShowPlayer: boolean;
+  isAudioPlay: boolean;
   audioTrackObj: IAudioTrack;
   error: string | null;
 }

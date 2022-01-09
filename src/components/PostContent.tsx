@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
 
 import { translateMaker } from '../utils';
 import { IPost } from '../../store/reducers/reducerTypes';
+import { setAudioTrack, setPlayerOpen } from '../../store/actionCreators/systemAction';
+
 type PostContentProps = {
   postItem: IPost;
 };
@@ -13,6 +16,15 @@ const PostContent = (props: PostContentProps) => {
     props.postItem;
   const router = useRouter();
   const t = translateMaker(router);
+
+  const dispatch = useDispatch();
+
+const dispatchAudioTrack =()=>{
+  dispatch(setAudioTrack(contentObj));
+  dispatch(setPlayerOpen());
+
+}
+
   return (
     <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white divide-y divide-gray-300 dark:divide-gray-500">
       <div className="px-4 py-2 lg:py-4">
@@ -43,7 +55,7 @@ const PostContent = (props: PostContentProps) => {
         {postType === 'album' ? (
           <div className="flex pb-4">
             <div className="flex items-center pl-20 lg:pl-24 2xl:pl-32">
-              <div className="relative h-20 w-20 lg:h-24 lg:w-24 2xl:h-28 2xl:w-28 min-w-min aspect-square cursor-pointer group">
+              <div className="relative h-20 w-20 lg:h-24 lg:w-24 2xl:h-28 2xl:w-28 min-w-min aspect-square cursor-pointer group" onClick={dispatchAudioTrack}>
                 <div className="text-white opacity-0 group-hover:opacity-100 absolute left-[calc(55%_-_1rem)] top-[calc(52%_-_1rem)] z-10">
                   <FontAwesomeIcon
                     icon={['fas', 'play-circle']}
@@ -72,8 +84,8 @@ const PostContent = (props: PostContentProps) => {
             </div>
           </div>
         ) : (
-          <div className="pb-2 relative">
-            <div className="w-full aspect-video">
+          <div className="pb-1">
+            <div className="w-full aspect-video relative">
                 {contentObj.contentPhoto.length > 0 && (
                   <Image
                     src={`/img/${contentObj.contentPhoto}.jpg`}

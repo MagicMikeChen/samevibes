@@ -3,24 +3,45 @@ import { IAudioTrack } from '../reducers/reducerTypes';
 import { Dispatch } from 'redux';
 
 export const setAudioTrack = (audioTrackObj: IAudioTrack) => async (dispatch: Dispatch<ActionTypes>) => {
-  dispatch({
+  await dispatch({
+    type: Action.SET_AUDIO_PAUSE,
+    payload: false,
+  });
+  await dispatch({
     type: Action.SET_AUDIO_TRACK,
     payload: audioTrackObj,
   });
+  await dispatch({
+    type: Action.SET_AUDIO_PLAY,
+    payload: true,
+  });
 };
-// export const openPlayer = (posts: IPost[]) => async (dispatch: Dispatch<Action>) => {
-//   // const res = await axios.get('api/posts');
-//   // const posts = [{id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}]
-//   dispatch({
-//     type: ActionTypes.GET_POSTS,
-//     payload: posts,
-//   });
-// };
-// export const closePlayer = (posts: IPost[]) => async (dispatch: Dispatch<Action>) => {
-//   // const res = await axios.get('api/posts');
-//   // const posts = [{id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}]
-//   dispatch({
-//     type: ActionTypes.GET_POSTS,
-//     payload: posts,
-//   });
-// };
+export const setAudioPlay = () => async (dispatch: Dispatch<ActionTypes>) => {
+  dispatch({
+    type: Action.SET_AUDIO_PLAY,
+    payload: true,
+  });
+};
+export const setAudioPause = () => async (dispatch: Dispatch<ActionTypes>) => {
+  dispatch({
+    type: Action.SET_AUDIO_PAUSE,
+    payload: false,
+  });
+};
+export const setPlayerOpen = () => async (dispatch: Dispatch<ActionTypes>) => {
+  dispatch({
+    type: Action.OPEN_PLAYER,
+    payload: true,
+  });
+};
+export const setPlayerClose = () => async (dispatch: Dispatch<ActionTypes>) => {
+  dispatch({
+    type: Action.CLOSE_PLAYER,
+    payload: false,
+  });
+  dispatch({
+    type: Action.SET_AUDIO_PAUSE,
+    payload: false,
+  });
+};
+

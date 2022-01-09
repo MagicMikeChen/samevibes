@@ -6,6 +6,8 @@ export enum Action {
   SET_AUDIO_TRACK = 'SET_AUDIO_TRACK',
   OPEN_PLAYER = 'OPEN_PLAYER',
   CLOSE_PLAYER = 'CLOSE_PLAYER',
+  SET_AUDIO_PLAY = 'SET_AUDIO_PLAY',
+  SET_AUDIO_PAUSE = 'SET_AUDIO_PAUSE',
 }
 
 interface getPost {
@@ -23,5 +25,20 @@ interface setAudioTrack {
   payload: IAudioTrack;
 }
 
-
-export type ActionTypes = getPost | getPosts | setAudioTrack;
+interface setAudioPlay {
+  type: Action.SET_AUDIO_PLAY;
+  payload: boolean;
+}
+interface setAudioPause {
+  type: Action.SET_AUDIO_PAUSE;
+  payload: boolean;
+}
+interface setPlayerOpen {
+  type: Action.OPEN_PLAYER;
+  payload: boolean;
+}
+interface setPlayerClose {
+  type: Action.CLOSE_PLAYER;
+  payload: boolean;
+}
+export type ActionTypes = getPost | getPosts | setAudioTrack | setAudioPlay | setAudioPause | setPlayerOpen | setPlayerClose;

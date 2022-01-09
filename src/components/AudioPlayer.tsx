@@ -1,24 +1,52 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { audioTracks } from '../../common';
+import { RootState } from '../../store/reducers';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setAudioPlay,
+  setAudioPause,
+  setPlayerClose
+} from '../../store/actionCreators/systemAction';
 
 const AudioPlayer: React.FC = () => {
-  // State
+  const systemState = useSelector((state: RootState) => state.systemReducer);
+  const dispatch = useDispatch();
+
+  const dispatchAudioPlay = () => {
+    dispatch(setAudioPlay());
+  };
+  const dispatchAudioPause = () => {
+    dispatch(setAudioPause());
+  };
+  const dispatchPlayerClose = () => {
+    dispatch(setPlayerClose());
+  };  // State
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlay, setIsPlay] = useState(false);
   const [duration, setDuration] = useState(0);
   const [trackStyling, setTrackStyling] = useState('');
 
   // Destructure for conciseness
-  const { audioTitle, artist, audioType, audioImage, audioSrc } = (audioTracks ? audioTracks[trackIndex] : {audioTitle:'', artist:'', audioType:'', audioImage:'', audioSrc:'' });
-
+  const { audioTitle, artist, audioType, audioImage, audioSrc } = [
+    systemState.audioTrackObj,
+  ]
+    ? [systemState.audioTrackObj][trackIndex]
+    : {
+        audioTitle: '',
+        artist: '',
+        audioType: '',
+        audioImage: '',
+        audioSrc: '',
+      };
+  const { isAudioPlay } = systemState;
   // Refs
   const audioRef = useRef<HTMLAudioElement | undefined>(
     typeof Audio !== 'undefined' ? new Audio('') : undefined
   );
   const intervalRef = useRef(0);
-  const isReady = useRef(false);
+  // const isReady = useRef(false);
 
   useEffect(() => {
     if (audioRef && audioRef.current) {
@@ -37,10 +65,12 @@ const AudioPlayer: React.FC = () => {
   const startTimer = () => {
     // Clear any timers already running
     clearInterval(intervalRef.current);
-
     intervalRef.current = window.setInterval(() => {
       if (audioRef.current.ended) {
-        toNextTrack();
+        // toNextTrack();
+        setTrackProgress(0);
+        setPause()
+        clearInterval(intervalRef.current);
       } else {
         setTrackProgress(audioRef.current.currentTime);
       }
@@ -56,8 +86,8 @@ const AudioPlayer: React.FC = () => {
 
   const onScrubEnd = () => {
     // If not already playing, start
-    if (!isPlaying) {
-      setIsPlaying(true);
+    if (!isAudioPlay) {
+      dispatchAudioPlay();
     }
     startTimer();
   };
@@ -77,32 +107,45 @@ const AudioPlayer: React.FC = () => {
       setTrackIndex(0);
     }
   };
-
   useEffect(() => {
-    if (isPlaying) {
+    if (audioSrc) {
+      audioRef.current.src = `/audio/${audioSrc}.mp3`;
+    } else {
+      audioRef.current.pause();
+    }
+  }, [audioSrc]);
+  useEffect(() => {
+    if (isAudioPlay) {
       audioRef.current.play();
       startTimer();
     } else {
       audioRef.current.pause();
     }
-  }, [isPlaying]);
+  }, [isAudioPlay]);
+
+  const setStartPlay = () => {
+    dispatchAudioPlay();
+  };
+  const setPause = () => {
+    dispatchAudioPause();
+  };
 
   // Handles cleanup and setup when changing tracks
-  useEffect(() => {
-    audioRef.current.pause();
+  // useEffect(() => {
+  //   audioRef.current.pause();
 
-    audioRef.current = new Audio(`/audio/${audioSrc}.mp3`);
-    setTrackProgress(audioRef.current.currentTime);
+  //   audioRef.current = new Audio(`/audio/${audioSrc && audioSrc}.mp3`);
+  //   setTrackProgress(audioRef.current.currentTime);
 
-    if (isReady.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
-      startTimer();
-    } else {
-      // Set the isReady ref as true for the next pass
-      isReady.current = true;
-    }
-  }, [trackIndex]);
+  //   if (isReady.current) {
+  //     audioRef.current.play();
+  //     setIsPlaying(true);
+  //     startTimer();
+  //   } else {
+  //     // Set the isReady ref as true for the next pass
+  //     isReady.current = true;
+  //   }
+  // }, [trackIndex]);
 
   useEffect(() => {
     // Pause and clean up on unmount
@@ -115,7 +158,7 @@ const AudioPlayer: React.FC = () => {
   return (
     <div className="p-4 cs-navbar-style-light dark:cs-navbar-style-dark">
       <div className="flex items-center">
-      <div
+        {/* <div
           className="hidden lg:flex mx-1 items-center cursor-pointer"
           onClick={toPrevTrack}
         >
@@ -123,11 +166,11 @@ const AudioPlayer: React.FC = () => {
             icon={['fas', 'step-backward']}
             className="icon-common mr-2 "
           ></FontAwesomeIcon>
-        </div>
-        {isPlaying ? (
+        </div> */}
+        {isAudioPlay ? (
           <div
             className="flex mx-1 items-center cursor-pointer"
-            onClick={() => setIsPlaying(false)}
+            onClick={setPause}
           >
             <FontAwesomeIcon
               icon={['fas', 'pause']}
@@ -137,7 +180,7 @@ const AudioPlayer: React.FC = () => {
         ) : (
           <div
             className="flex mx-1 items-center cursor-pointer"
-            onClick={() => setIsPlaying(true)}
+            onClick={setStartPlay}
           >
             <FontAwesomeIcon
               icon={['fas', 'play']}
@@ -146,7 +189,7 @@ const AudioPlayer: React.FC = () => {
           </div>
         )}
 
-        <div
+        {/* <div
           className="hidden lg:flex mx-1 items-center cursor-pointer"
           onClick={toNextTrack}
         >
@@ -154,7 +197,7 @@ const AudioPlayer: React.FC = () => {
             icon={['fas', 'step-forward']}
             className="icon-common mr-2 "
           ></FontAwesomeIcon>
-        </div>
+        </div> */}
         <div className="min-w-max">{audioTitle && audioTitle}</div>
         <div className="flex items-center mx-4 lg:mx-8 w-full mt-1">
           <input
@@ -170,9 +213,7 @@ const AudioPlayer: React.FC = () => {
             style={{ background: trackStyling }}
           />
         </div>
-        <div
-          className="flex items-center cursor-pointer border-solid border border-gray-100 rounded-full p-1"
-        >
+        <div className="flex items-center cursor-pointer border-solid border border-gray-100 rounded-full p-1" onClick={dispatchPlayerClose}>
           <FontAwesomeIcon
             icon={['fas', 'times']}
             className="icon-common"
