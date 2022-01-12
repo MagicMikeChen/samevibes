@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
@@ -19,7 +20,22 @@ const Home: NextPage = () => {
   }, []);
 
   const postsState = useSelector((state: RootState) => state.postsState);
-
+  const postVariants = {
+    initial: { scale: 0.9, y: '100vh', opacity: 0 },
+    enter: {
+      scale: 1,
+      y: 0,
+      opacity: 1,
+      staggerChildren: 0.5,
+      transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
+    },
+    exit: {
+      scale: 0.9,
+      y: '40vh',
+      opacity: 0,
+      transition: { duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96] },
+    },
+  };
   return (
     <div className="cs-main-bg-theme fixed">
       <Head>
@@ -36,9 +52,16 @@ const Home: NextPage = () => {
               <div className="lg:cs-post-scroll-height lg:overflow-y-auto no-scrollbar pt-4 pb-28 lg:pb-16">
                 {postsState.posts.map((postItem) => {
                   return (
-                    <div key={postItem.postId} className="mb-4">
+                    <motion.div
+                      key={postItem.postId}
+                      className="mb-4"
+                      initial="initial"
+                      animate="enter"
+                      exit="exit"
+                      variants={postVariants}
+                    >
                       <PostContent postItem={postItem}></PostContent>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
