@@ -1,7 +1,33 @@
 import { Action, ActionTypes } from '../actionTypes';
-import { IPostReducer } from './reducerTypes'
+import { IPostReducer } from './reducerTypes';
 
 const initialState = {
+  profilePosts: [
+    {
+      postId: '',
+      userId: '',
+      userName: '',
+      userAvatar: '',
+      postType: '',
+      contentObj: {
+        contentId: '',
+        contentTitle: '',
+        contentPhoto: '',
+        contentURL: '',
+        contentType: '',
+        audioSrc: '',
+        audioTitle: '',
+        audioImage: '',
+        album: '',
+        artist: '',
+        audioType: '',
+      },
+      isLiked: 0,
+      comments: [],
+      loading: false,
+      error: '',
+    },
+  ],
   posts: [
     {
       postId: '',
@@ -66,6 +92,13 @@ export const postReducer = (
       return {
         ...state,
         posts: action.payload,
+        loading: false,
+        error: null,
+      };
+    case Action.GET_PROFILE_POSTS:
+      return {
+        ...state,
+        profilePosts: action.payload,
         loading: false,
         error: null,
       };

@@ -41,6 +41,7 @@ export interface IPost {
 }
 
 export interface IPostReducer {
+  profilePosts: IPost[] | null;
   posts: IPost[] | null;
   post: IPost | null;
   loading: boolean;

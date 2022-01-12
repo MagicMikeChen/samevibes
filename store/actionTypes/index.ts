@@ -3,6 +3,7 @@ import { IPost, IAudioTrack } from '../reducers/reducerTypes';
 export enum Action {
   GET_POST = 'GET_POST',
   GET_POSTS = 'GET_POSTS',
+  GET_PROFILE_POSTS = 'GET_PROFILE_POSTS',
   SET_AUDIO_TRACK = 'SET_AUDIO_TRACK',
   OPEN_PLAYER = 'OPEN_PLAYER',
   CLOSE_PLAYER = 'CLOSE_PLAYER',
@@ -20,6 +21,10 @@ interface getPosts {
   payload: IPost[];
 }
 
+interface getProfilePosts {
+  type: Action.GET_PROFILE_POSTS;
+  payload: IPost[];
+}
 interface setAudioTrack {
   type: Action.SET_AUDIO_TRACK;
   payload: IAudioTrack;
@@ -41,4 +46,4 @@ interface setPlayerClose {
   type: Action.CLOSE_PLAYER;
   payload: boolean;
 }
-export type ActionTypes = getPost | getPosts | setAudioTrack | setAudioPlay | setAudioPause | setPlayerOpen | setPlayerClose;
+export type ActionTypes = getPost | getPosts | setAudioTrack | setAudioPlay | setAudioPause | setPlayerOpen | setPlayerClose | getProfilePosts;

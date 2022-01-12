@@ -16,3 +16,11 @@ export const fetchPosts = (posts: IPost[]) => async (dispatch: Dispatch<ActionTy
     payload: posts,
   });
 };
+export const getProfilePosts = (posts: IPost[]) => async (dispatch: Dispatch<ActionTypes>) => {
+  // const res = await axios.get('api/posts');
+  // const posts = [{id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}, {id:1, type:1, user: 'me'}]
+  dispatch({
+    type: Action.GET_PROFILE_POSTS,
+    payload: posts,
+  });
+};
