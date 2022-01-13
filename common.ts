@@ -1,5 +1,5 @@
 export const toTopVariants = {
-  initial: { scale: 0.9, y: '100vh', opacity: 0.6 },
+  initial: { scale: 1, y: '100vh', opacity: 0.6 },
   enter: {
     scale: 1,
     y: 0,
@@ -7,15 +7,31 @@ export const toTopVariants = {
     transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
   },
   exit: {
-    scale: 0.9,
+    scale: 1,
     y: '80vh',
     opacity: 0.6,
     transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
   },
 };
 
+export const toBottomVariants = {
+  initial: { scale: 1, y: '-100vh', opacity: 0.6 },
+  enter: {
+    scale: 1,
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+  exit: {
+    scale: 1,
+    y: '-80vh',
+    opacity: 0.6,
+    transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+};
+
 export const toLeftVariants = {
-  initial: { scale: 0.9, x: '100vh', opacity: 0.5 },
+  initial: { scale: 1, x: '100vh', opacity: 0.5 },
   enter: {
     scale: 1,
     x: 0,
@@ -23,8 +39,24 @@ export const toLeftVariants = {
     transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
   },
   exit: {
-    scale: 0.9,
+    scale: 1,
     x: '40vh',
+    opacity: 0,
+    transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+};
+
+export const toRightVariants = {
+  initial: { scale: 1, x: '-100vh', opacity: 0.5 },
+  enter: {
+    scale: 1,
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+  exit: {
+    scale: 1,
+    x: '-40vh',
     opacity: 0,
     transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
   },

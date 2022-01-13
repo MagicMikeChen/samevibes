@@ -2,18 +2,22 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Waypoint } from 'react-waypoint';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
 import PostContent from '../src/components/PostContent';
 import { translateMaker } from '../src/utils';
-import { myDemoPosts } from '../common';
+import {
+  myDemoPosts,
+  toTopVariants,
+  toRightVariants,
+  toBottomVariants,
+} from '../common';
 import { RootState } from '../store/reducers';
 import { getProfilePosts } from '../store/actionCreators/postAction';
 
@@ -23,21 +27,23 @@ const Profile: NextPage = () => {
     dispatch(getProfilePosts(myDemoPosts));
   }, []);
 
-  const profilePosts = useSelector((state: RootState) => state.postsState.profilePosts);
+  const profilePosts = useSelector(
+    (state: RootState) => state.postsState.profilePosts
+  );
 
   const router = useRouter();
-  const t = translateMaker(router)
+  const t = translateMaker(router);
 
-  const scrollToTop = () =>{
-    document.getElementById("scroller").scrollTo({
+  const scrollToTop = () => {
+    document.getElementById('scroller').scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
       /* you can also use 'auto' behaviour
          in place of 'smooth' */
-    })
+    });
   };
-  
+
   const [isSticky, setSticky] = useState(false);
   const handleEnter = () => {
     setSticky(true);
@@ -59,11 +65,11 @@ const Profile: NextPage = () => {
           isSticky ? 'hidden' : ''
         }`}
       >
-        <div className='flex cursor-pointer' onClick={scrollToTop}>
+        <div className="flex cursor-pointer" onClick={scrollToTop}>
           <div className="relative h-12 w-12 my-1 items-center justify-center content-center">
             <Image
               className="rounded-full"
-              src="/img/g2.jpg"
+              src="/img/me.jpg"
               alt="me"
               layout="fill"
               // width={120}
@@ -71,7 +77,7 @@ const Profile: NextPage = () => {
               objectFit="cover"
             />
           </div>
-          <div className='flex items-center ml-4'>Victoria Wirya</div>
+          <div className="flex items-center ml-4">Mike Chen</div>
         </div>
         <div>
           <div className={`my-2 flex flex-row justify-between`}>
@@ -88,13 +94,20 @@ const Profile: NextPage = () => {
                 icon={['fas', 'comments']}
                 className="icon-common mr-2"
               ></FontAwesomeIcon>
-              <div></div>{t['txt-message']}
+              <div></div>
+              {t['txt-message']}
             </div>
           </div>
         </div>
       </nav>
-      <div id="scroller" className="container mx-auto overflow-y-auto h-full no-scrollbar">
-        <div className="flex-col pt-4">
+
+      <div
+        id="scroller"
+        className="container mx-auto overflow-y-auto h-full no-scrollbar"
+      >
+        <div
+          className="flex-col pt-4"
+        >
           {/* <ProfileForm /> */}
           <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white mb-4 flex-col">
             <div className="flex flex-col items-center">
@@ -109,7 +122,9 @@ const Profile: NextPage = () => {
                   objectFit="cover"
                 />
               </div>
-              <div className="text-center text-lg font-medium mt-2">Mike Chen</div>
+              <div className="text-center text-lg font-medium mt-2">
+                Mike Chen
+              </div>
               <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
               <div className={`text-center my-4 flex flex-row`}>
                 <div className="flex items-center mx-2 cs-btn-border-style">
@@ -125,17 +140,25 @@ const Profile: NextPage = () => {
                     icon={['fas', 'comments']}
                     className="icon-common mr-2"
                   ></FontAwesomeIcon>
-                  <div></div>{t['txt-message']}
+                  <div></div>
+                  {t['txt-message']}
                 </div>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between mt-2">
-            <div className="flex-col lg:w-5/12">
+            <motion.div
+              className="flex-col lg:w-5/12"
+              initial="initial"
+              animate="enter"
+              exit="exit"
+              variants={toRightVariants}
+            >
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
                 <div className="text-center w-full p-4">
-                  My name is Mike Chen, I am a photographer and software developer in Taipei.
+                  My name is Mike Chen, I am a photographer and software
+                  developer in Taipei.
                 </div>
               </div>
               <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
@@ -204,20 +227,25 @@ const Profile: NextPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             <div className="flex-col lg:w-7/12 mt-4 lg:mt-0 lg:ml-4 mb-8">
-              <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
+              <motion.div
+                className="cs-block-style-white-theme dark:cs-block-style-grey-900"
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                variants={toTopVariants}
+              >
                 <div className="flex flex-col">
                   <div className="p-4">{t['txt-posts']}</div>
                   {profilePosts.map((postItem) => {
-                  return (
-                    <div key={postItem.postId} className="mb-4">
-                      <PostContent postItem={postItem}></PostContent>
-                    </div>
-                  );
-                })}
-                  {
-                  /* <div className="mb-4 px-4">
+                    return (
+                      <div key={postItem.postId} className="mb-4">
+                        <PostContent postItem={postItem}></PostContent>
+                      </div>
+                    );
+                  })}
+                  {/* <div className="mb-4 px-4">
                     <PostContent></PostContent>
                   </div>
                   <div className="mb-4 px-4">
@@ -230,7 +258,7 @@ const Profile: NextPage = () => {
                     <PostContent></PostContent>
                   </div> */}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
