@@ -1,3 +1,47 @@
+export const toTopVariants = {
+  initial: { scale: 0.9, y: '100vh', opacity: 0.6 },
+  enter: {
+    scale: 1,
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+  exit: {
+    scale: 0.9,
+    y: '80vh',
+    opacity: 0.6,
+    transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+};
+
+export const toLeftVariants = {
+  initial: { scale: 0.9, x: '100vh', opacity: 0.5 },
+  enter: {
+    scale: 1,
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+  exit: {
+    scale: 0.9,
+    x: '40vh',
+    opacity: 0,
+    transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+};
+
+export const fadeInVariants = {
+  initial: { opacity: 0 },
+  enter: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+};
+
 export const MenuItems = [
   {
     label: 'txt-home',

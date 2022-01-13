@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import Navbar from '../src/components/Navbar';
 import ProfileForm from '../src/components/ProfileForm';
@@ -11,7 +11,12 @@ import FriendsList from '../src/components/FriendsList';
 import PostContent from '../src/components/PostContent';
 import { fetchPosts } from '../store/actionCreators/postAction';
 import { RootState } from '../store/reducers';
-import { demoPosts, demoFriendList } from '../common';
+import {
+  demoPosts,
+  demoFriendList,
+  toTopVariants,
+  toLeftVariants,
+} from '../common';
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
@@ -20,22 +25,7 @@ const Home: NextPage = () => {
   }, []);
 
   const postsState = useSelector((state: RootState) => state.postsState);
-  const postVariants = {
-    initial: { scale: 0.9, y: '100vh', opacity: 0 },
-    enter: {
-      scale: 1,
-      y: 0,
-      opacity: 1,
-      staggerChildren: 0.5,
-      transition: { duration: 0.5, ease: [0.48, 0.15, 0.25, 0.96] },
-    },
-    exit: {
-      scale: 0.9,
-      y: '40vh',
-      opacity: 0,
-      transition: { duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96] },
-    },
-  };
+
   return (
     <div className="cs-main-bg-theme fixed">
       <Head>
@@ -58,7 +48,7 @@ const Home: NextPage = () => {
                       initial="initial"
                       animate="enter"
                       exit="exit"
-                      variants={postVariants}
+                      variants={toTopVariants}
                     >
                       <PostContent postItem={postItem}></PostContent>
                     </motion.div>
@@ -67,9 +57,15 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="flex-col lg:w-4/12 h-full pt-4">
-              <div className="mb-4">
+              <motion.div
+                className="mb-4"
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                variants={toLeftVariants}
+              >
                 <FriendsList></FriendsList>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
