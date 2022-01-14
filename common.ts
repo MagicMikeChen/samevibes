@@ -1,3 +1,21 @@
+export const zWaveVariants = {
+  initial: { scale: 1, y: 30, x: 60, opacity: 1 },
+  enter: {
+    scale: 1,
+    y: 0,
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.4, ease: [0.48, 0.15, 0.25, 0.96], yoyo: 8 },
+  },
+  exit: {
+    scale: 1,
+    y: 0,
+    x: 0,
+    opacity: 0.6,
+    transition: { duration: 0.3, ease: [0.48, 0.15, 0.25, 0.96] },
+  },
+};
+
 export const toTopVariants = {
   initial: { scale: 1, y: '100vh', opacity: 0.6 },
   enter: {
@@ -88,11 +106,17 @@ export const MenuItems = [
     active: false,
   },
   {
-    label: 'txt-nearby',
-    url: '/nearby',
+    label: 'txt-price',
+    url: '/price',
     icon: '',
     active: false,
   },
+  // {
+  //   label: 'txt-nearby',
+  //   url: '/nearby',
+  //   icon: '',
+  //   active: false,
+  // },
   //  {
   //     label: 'Contact',
   //     url: "/contact",

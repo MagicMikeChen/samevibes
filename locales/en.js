@@ -1,4 +1,5 @@
 export const en = {
+  'txt-price': 'Price',
   'txt-home': 'Home',
   'txt-info': 'Info',
   'txt-like': 'Like',
