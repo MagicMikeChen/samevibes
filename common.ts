@@ -111,6 +111,12 @@ export const MenuItems = [
     icon: '',
     active: false,
   },
+  {
+    label: 'txt-about',
+    url: '/about',
+    icon: '',
+    active: false,
+  },
   // {
   //   label: 'txt-nearby',
   //   url: '/nearby',

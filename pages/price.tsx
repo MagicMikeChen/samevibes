@@ -4,9 +4,7 @@ import Image from 'next/image';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 import Navbar from '../src/components/Navbar';
-import {
-  zWaveVariants,
-} from '../common';
+import { zWaveVariants, toTopVariants } from '../common';
 
 const Price: NextPage = () => {
   const x = useMotionValue(0);
@@ -22,10 +20,16 @@ const Price: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
-      <div className="container mx-auto overflow-y-auto lg:overflow-y-hidden h-full no-scrollbar relative flex justify-center items-center bokeh-container-clip">
+      <motion.div
+        className="container mx-auto overflow-y-auto lg:overflow-y-hidden h-full no-scrollbar relative flex justify-center items-center"
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        variants={toTopVariants}
+      >
         <div className=" w-full lg:w-2/3 h-2/3 absolute">
           <Image
-            className="rounded-xl opacity-60"
+            className="rounded-xl opacity-90 dark:opacity-70"
             src={'/img/img-bokeh-2.jpg'}
             alt="bokeh"
             layout="fill"
@@ -46,10 +50,10 @@ const Price: NextPage = () => {
               exit="exit"
               variants={zWaveVariants}
             >
-              <div className="flex items-center text-center text-3xl font-semibold cs-gradient-logo-style-light dark:cs-gradient-logo-style-dark">
+              <div className="flex items-center text-center text-3xl font-semibold cs-gradient-logo-style-dark">
                 SameVibes
               </div>
-              <div className="absolute bottom-8 z-0 flex items-center">
+              <div className="absolute bottom-8 z-0 flex items-center text-white">
                 <motion.div
                   style={{ x, y, rotateX, rotateY, z: 9000 }}
                   drag
@@ -82,7 +86,7 @@ const Price: NextPage = () => {
             </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 export const cn = {
+  'txt-about': "關於作者",
   'txt-price': '費用',
   'txt-home': '首頁',
   'txt-info': '簡介',
