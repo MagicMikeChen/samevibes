@@ -103,6 +103,7 @@ export const MenuItems = [
 
 export const audioTracks = [
   {
+    audioId: '132456gh',
     audioSrc: 'I_Hope_She_s_Not_Cold',
     audioTitle: 'I Hope She is Not Cold',
     audioImage: 'album_american_country',
@@ -111,6 +112,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'I_dance_to_the_Jazz_of_the_50s',
     audioTitle: 'I dance to the Jazz of the 50s',
     audioImage: 'album_I_dance_to_the_Jazz_of_the_50s',
@@ -119,6 +121,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'Me_And_Jerry_Reed',
     audioTitle: 'Me And Jerry Reed',
     audioImage: 'album_Me_And_Jerry_Reed',
@@ -127,6 +130,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'Before_You_Break_My_Heart',
     audioTitle: 'Before You Break My Heart',
     audioImage: 'album_Me_And_Jerry_Reed',
@@ -135,6 +139,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'The_imagined_last_day_of_Crawford_Gordon',
     audioTitle: 'The imagined last day of Crawford Gordon',
     audioImage: 'album_The_imagined_last_day_of_Crawford_Gordon',
@@ -143,6 +148,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'The_corn_road',
     audioTitle: 'The corn road',
     audioImage: 'album_The_corn_road',
@@ -151,6 +157,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'Madly_Deeply',
     audioTitle: 'Madly Deeply',
     audioImage: 'album_What_Is_Love',
@@ -159,6 +166,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'One_Day',
     audioTitle: 'One Day',
     audioImage: 'album_What_Is_Love',
@@ -167,6 +175,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'What_Is_Love',
     audioTitle: 'What Is Love',
     audioImage: 'album_What_Is_Love',
@@ -175,6 +184,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'French_Kisses_And_Cat_Hair',
     audioTitle: 'French Kisses And Cat Hair',
     audioImage: 'album_Very_Good_Album',
@@ -183,6 +193,7 @@ export const audioTracks = [
     audioType: '',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'Old_Russian_Waltz_2-Romantic_Piano_Music',
     audioTitle: 'Romantic Piano Music',
     audioImage: 'album_Old_Russian_Waltz',
@@ -191,6 +202,7 @@ export const audioTracks = [
     audioType: 'Piano',
   },
   {
+    audioId: '132456gh',
     audioSrc: 'No_Country_Song',
     audioTitle: 'No Country Song',
     audioImage: 'album_High_Tonight',
@@ -212,6 +224,7 @@ export const demoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'One_Day',
       audioTitle: 'One Day',
       audioImage: 'album_What_Is_Love',
@@ -236,6 +249,7 @@ export const demoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'Before_You_Break_My_Heart',
       audioTitle: 'Before You Break My Heart',
       audioImage: 'album_Me_And_Jerry_Reed',
@@ -260,6 +274,7 @@ export const demoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'No_Country_Song',
       audioTitle: 'No Country Song',
       audioImage: 'album_High_Tonight',
@@ -284,6 +299,7 @@ export const demoPosts = [
       contentPhoto: 'e1',
       contentURL: 'string',
       contentType: 'event',
+      audioId: '132456gh',
       audioSrc: 'Old_Russian_Waltz_2-Romantic_Piano_Music',
       audioTitle: 'Romantic Piano Music',
       audioImage: 'album_Old_Russian_Waltz',
@@ -308,6 +324,7 @@ export const demoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'The_corn_road',
       audioTitle: 'The corn road',
       audioImage: 'album_The_corn_road',
@@ -332,6 +349,7 @@ export const demoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'Old_Russian_Waltz_2-Romantic_Piano_Music',
       audioTitle: 'Romantic Piano Music',
       audioImage: 'album_Old_Russian_Waltz',
@@ -390,6 +408,7 @@ export const myDemoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'I_dance_to_the_Jazz_of_the_50s',
       audioTitle: 'I dance to the Jazz of the 50s',
       audioImage: 'album_I_dance_to_the_Jazz_of_the_50s',
@@ -414,6 +433,7 @@ export const myDemoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'French_Kisses_And_Cat_Hair',
       audioTitle: 'French Kisses And Cat Hair',
       audioImage: 'album_Very_Good_Album',
@@ -426,7 +446,7 @@ export const myDemoPosts = [
     loading: false,
     error: '',
   },
-  
+
   {
     postId: '111315',
     userId: '66666',
@@ -435,10 +455,11 @@ export const myDemoPosts = [
     postType: 'event',
     contentObj: {
       contentId: '66253',
-      contentTitle: "A Fantastic Concert",
+      contentTitle: 'A Fantastic Concert',
       contentPhoto: 'e3',
       contentURL: 'string',
       contentType: 'event',
+      audioId: '132456gh',
       audioSrc: 'Old_Russian_Waltz_2-Romantic_Piano_Music',
       audioTitle: 'Romantic Piano Music',
       audioImage: 'album_Old_Russian_Waltz',
@@ -463,6 +484,7 @@ export const myDemoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'The_imagined_last_day_of_Crawford_Gordon',
       audioTitle: 'The imagined last day of Crawford Gordon',
       audioImage: 'album_The_imagined_last_day_of_Crawford_Gordon',
@@ -487,6 +509,7 @@ export const myDemoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'Before_You_Break_My_Heart',
       audioTitle: 'Before You Break My Heart',
       audioImage: 'album_Me_And_Jerry_Reed',
@@ -511,6 +534,7 @@ export const myDemoPosts = [
       contentPhoto: 'string',
       contentURL: 'string',
       contentType: 'album',
+      audioId: '132456gh',
       audioSrc: 'What_Is_Love',
       audioTitle: 'What Is Love',
       audioImage: 'album_What_Is_Love',
@@ -524,3 +548,29 @@ export const myDemoPosts = [
     error: '',
   },
 ];
+
+const demoProfileObj = {
+  userId: '66666',
+  userName: 'Mike Chen',
+  userAvatar: '/img/me.jpg',
+  userFriendStatus: '',
+  userIntro:
+    'My name is Mike Chen, I am a photographer and software developer in Taipei.',
+  userCompany: 'Nuts Tech',
+  userJobTitle: 'Frontend Developer',
+  userEducation: 'National Yang Ming Chiao Tung University',
+  userLocation: 'Taipei',
+  userInstagram: 'https://www.instagram.com/magicmike.taipei',
+  userRelationship: '???',
+  userFavAlbums: [
+    {
+      audioId: '132456gh',
+      audioSrc: 'What_Is_Love',
+      audioTitle: 'What Is Love',
+      audioImage: 'album_What_Is_Love',
+      album: 'What Is Love',
+      artist: 'Melanie Ungar',
+      audioType: '',
+    },
+  ],
+};
