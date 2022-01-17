@@ -2,7 +2,7 @@ import type { NextComponentType } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { translateMaker } from '../utils';
-import { demoFriendList } from '../../common';
+import { demoFriendList } from '../../fakeFriendList';
 
 // type FriendsListProps = {
 //   listItem: {

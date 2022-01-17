@@ -1,4 +1,3 @@
-
 export interface IComment {
   userId: string;
   userName: string | null;
@@ -15,8 +14,8 @@ export interface IAudioTrack {
   audioType?: string | null;
 }
 export interface IContent {
-  contentId: string;
-  contentType: string;
+  contentId?: string;
+  contentType?: string;
   contentTitle?: string | null;
   contentPhoto?: string | null;
   contentURL?: string | null;
@@ -51,16 +50,19 @@ export interface IPostReducer {
 export interface IUserReducer {
   posts: IPost[] | null;
   post: IPost | null;
+  curUser: ICurUser;
   userId: string;
   userName: string | null;
   userAvatar: string | null;
   userIntro: string;
-  userJob: string;
+  userCompany: string;
+  userJobTitle: string;
   userEducation: string;
   userLocation: string;
   userIg: string;
   userRelationship: string;
-  userCollections: IContent[];
+  userFavAlbums: IContent[];
+  userFriendStatus: string;
   friendStatus: number;
   loading: boolean;
   error: string | null;
@@ -73,4 +75,19 @@ export interface ISystemReducer {
   isAudioPlay: boolean;
   audioTrackObj: IAudioTrack;
   error: string | null;
+}
+
+export interface ICurUser {
+  userId?: string;
+  userName?: string | null;
+  userAvatar?: string | null;
+  userIntro?: string;
+  userCompany?: string;
+  userJobTitle?: string;
+  userEducation?: string;
+  userLocation?: string;
+  userInstagram?: string;
+  userRelationship?: string;
+  userFavAlbums?: IContent[];
+  userFriendStatus?: string;
 }

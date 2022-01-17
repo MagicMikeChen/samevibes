@@ -1,5 +1,6 @@
 import { Action, ActionTypes } from '../actionTypes';
-import { IUserReducer } from './reducerTypes'
+import { IUserReducer } from './reducerTypes';
+import { demoProfiles } from '../../fakeUser';
 
 const initialState = {
   posts: [
@@ -40,16 +41,32 @@ const initialState = {
     loading: false,
     error: '',
   },
+  curUser: {
+    userId: 'string',
+    userName: 'string',
+    userAvatar: '/img/me.jpg' ,
+    userIntro: 'string',
+    userCompany: 'string',
+    userJobTitle: 'string',
+    userEducation: 'string',
+    userLocation: 'string',
+    userInstagram: 'string',
+    userRelationship: 'string',
+    userFavAlbums: [],
+    userFriendStatus: 'string',
+  },
   userId: 'string',
   userName: 'string',
   userAvatar: 'string',
   userIntro: 'string',
-  userJob: 'string',
+  userCompany: 'string',
+  userJobTitle: 'string',
   userEducation: 'string',
   userLocation: 'string',
   userIg: 'string',
   userRelationship: 'string',
-  userCollections: [],
+  userFavAlbums: [],
+  userFriendStatus: '',
   friendStatus: 0,
   loading: false,
   error: null,
@@ -60,10 +77,12 @@ export const userReducer = (
   action: ActionTypes
 ): IUserReducer => {
   switch (action.type) {
-    case Action.GET_POST:
+    case Action.GET_CUR_USER:
       return {
         ...state,
-        post: action.payload,
+        curUser: demoProfiles.filter((item) =>
+        [action.payload].includes(item.userId)
+       )[0],
         loading: false,
         error: null,
       };

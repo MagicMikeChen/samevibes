@@ -12,11 +12,10 @@ import PostContent from '../src/components/PostContent';
 import { fetchPosts } from '../store/actionCreators/postAction';
 import { RootState } from '../store/reducers';
 import {
-  demoPosts,
-  demoFriendList,
   toTopVariants,
   toLeftVariants,
 } from '../common';
+import { demoPosts } from '../fakePosts';
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();

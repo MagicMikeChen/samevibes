@@ -1,20 +1,26 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import {useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Navbar from '../src/components/Navbar';
-import User from '../src/components/User';
-import {getCurUser} from '../store/actionCreators/userAction';
-import { RootState } from '../store/reducers';
+import Navbar from '../../src/components/Navbar';
+import User from '../../src/components/User';
+import {getCurUser} from '../../store/actionCreators/userAction';
+import { RootState } from '../../store/reducers';
 
-const Profile: NextPage = () => {
+const UserId: NextPage = () => {
+  
+  const router = useRouter();
+  const { pid } = router.query;
+  
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCurUser('user001'));
+    dispatch(getCurUser(pid));
   }, []);
 
   const curUserProfile = useSelector((state: RootState) => state.userReducer.curUser);
+
   return (
     <div className="cs-main-bg-theme fixed pb-12">
       <Head>
@@ -28,4 +34,4 @@ const Profile: NextPage = () => {
   );
 };
 
-export default Profile;
+export default UserId;
