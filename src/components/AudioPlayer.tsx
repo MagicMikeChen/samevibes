@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { audioTracks } from '../../common';
+import { audioTracks } from '../../audioTracks';
 import { RootState } from '../../store/reducers';
 import { useDispatch, useSelector } from 'react-redux';
 import {
