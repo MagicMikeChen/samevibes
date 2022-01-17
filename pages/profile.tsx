@@ -23,7 +23,7 @@ const Profile: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
-      <User userProfile={curUserProfile}></User>
+      <User userProfile={curUserProfile} isScrollUp={true}></User>
     </div>
   );
 };

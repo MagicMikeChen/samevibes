@@ -21,8 +21,10 @@ import {ICurUser} from '../../store/reducers/reducerTypes';
 
 interface UserProps {
   userProfile: ICurUser
+  isScrollUp: boolean
 }
 const User: React.FC<UserProps> = (props) => {
+  const { isScrollUp = false } = props
   const { userAvatar, userName } = props.userProfile
   const dispatch = useDispatch();
   useEffect(() => {
@@ -69,7 +71,7 @@ const User: React.FC<UserProps> = (props) => {
               <div className="relative h-12 w-12 my-1 items-center justify-center content-center">
                 <Image
                   className="rounded-full"
-                  src={userAvatar && userAvatar}
+                  src={userAvatar}
                   alt="me"
                   layout="fill"
                   // width={120}
@@ -77,7 +79,7 @@ const User: React.FC<UserProps> = (props) => {
                   objectFit="cover"
                 />
               </div>
-              <div className="flex items-center ml-4">{userName && userName}</div>
+              <div className="flex items-center ml-4">{userName}</div>
             </div>
             <div>
               <div className={`my-2 flex flex-row justify-between`}>
@@ -120,7 +122,7 @@ const User: React.FC<UserProps> = (props) => {
               <div className="relative h-32 w-32 2xl:h-40 2xl:w-40 my-4">
                 <Image
                   className="rounded-full"
-                  src={userAvatar && userAvatar}
+                  src={userAvatar}
                   alt="me"
                   layout="fill"
                   // width={120}
@@ -154,7 +156,7 @@ const User: React.FC<UserProps> = (props) => {
           </motion.div>
 
           <div className="flex flex-col lg:flex-row justify-between mt-2">
-            <UserInfo></UserInfo>
+            <UserInfo userProfile={props.userProfile}></UserInfo>
             <div className="flex-col lg:w-7/12 mt-4 lg:mt-0 lg:ml-4 pb-20">
               <motion.div
                 className="cs-block-style-white-theme dark:cs-block-style-grey-900"
@@ -168,7 +170,7 @@ const User: React.FC<UserProps> = (props) => {
                   {profilePosts.map((postItem) => {
                     return (
                       <div key={postItem.postId} className="mb-4">
-                        <PostContent postItem={postItem}></PostContent>
+                        <PostContent postItem={postItem} isScrollUp={isScrollUp} scrollToTop={scrollToTop}></PostContent>
                       </div>
                     );
                   })}

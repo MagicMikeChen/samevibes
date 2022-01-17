@@ -6,11 +6,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { translateMaker } from '../../src/utils';
 import { toRightVariants } from '../../common';
+import { ICurUser } from '../../store/reducers/reducerTypes';
 
-const UserInfo: React.FC = () => {
+interface UserInfoProps {
+  userProfile: ICurUser;
+}
+const UserInfo: React.FC<UserInfoProps> = (props) => {
   const router = useRouter();
   const t = translateMaker(router);
-
+  console.log('UserInfo props', props);
+  const {
+    userIntro,
+    userCompany,
+    userEducation,
+    userLocation,
+    userInstagram,
+    userRelationship,
+    userFavAlbums,
+  } = props.userProfile;
   return (
     <React.Fragment>
       <motion.div
@@ -21,47 +34,44 @@ const UserInfo: React.FC = () => {
         variants={toRightVariants}
       >
         <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
-          <div className="text-center w-full p-4">
-            My name is Mike Chen, I am a photographer and software developer in
-            Taipei.
-          </div>
+          <div className="text-center w-full p-4">{userIntro}</div>
         </div>
         <div className="cs-block-style-white-theme dark:cs-block-style-grey-900">
           <div className="flex flex-col p-4">
             <div className="flex items-center">
               <FontAwesomeIcon
                 icon={['fas', 'briefcase']}
-                className="icon-common mr-2"
+                className="icon-common mr-2 mt-1"
               ></FontAwesomeIcon>
-              <div></div>Work
-            </div>{' '}
+              <div>{userCompany}</div>
+            </div>
             <div className="flex items-center">
               <FontAwesomeIcon
                 icon={['fas', 'graduation-cap']}
-                className="icon-common mr-2"
+                className="icon-common mr-2 mt-1"
               ></FontAwesomeIcon>
-              <div></div>School
-            </div>{' '}
+              <div>{userEducation}</div>
+            </div>
             <div className="flex items-center">
               <FontAwesomeIcon
                 icon={['fas', 'map-marker-alt']}
-                className="icon-common mr-2"
+                className="icon-common mr-2 mt-1"
               ></FontAwesomeIcon>
-              <div></div>Living
-            </div>{' '}
+              <div>{userLocation}</div>
+            </div>
             <div className="flex items-center">
               <FontAwesomeIcon
                 icon={['fab', 'instagram']}
-                className="icon-common mr-2"
+                className="icon-common mr-2 mt-1"
               ></FontAwesomeIcon>
-              <div></div>Instagram
+              <div>{userInstagram}</div>
             </div>
             <div className="flex items-center">
               <FontAwesomeIcon
                 icon={['fas', 'heart']}
-                className="icon-common mr-2"
+                className="icon-common mr-2 mt-1"
               ></FontAwesomeIcon>
-              <div></div>Single
+              <div>{userRelationship}</div>
             </div>
           </div>
         </div>
@@ -70,13 +80,13 @@ const UserInfo: React.FC = () => {
             <div>{t['txt-favorite-album']}</div>
             <div>
               <div className="grid gap-4 grid-cols-3 grid-rows-3 mt-4">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, i) => {
+                {userFavAlbums.map((item, i) => {
                   return (
                     <div key={i} className="relative min-w-min aspect-square">
                       <Image
                         className="rounded-md"
-                        src="/img/album-01.jpg"
-                        alt="me"
+                        src={`/img/${item.audioImage}.jpeg`}
+                        alt={item.audioTitle}
                         layout="fill"
                         // width={120}
                         // height={120}

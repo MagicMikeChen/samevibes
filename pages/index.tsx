@@ -49,7 +49,7 @@ const Home: NextPage = () => {
                       exit="exit"
                       variants={toTopVariants}
                     >
-                      <PostContent postItem={postItem}></PostContent>
+                      <PostContent postItem={postItem} isScrollUp={false}></PostContent>
                     </motion.div>
                   );
                 })}
