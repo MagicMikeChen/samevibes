@@ -17,6 +17,7 @@ import {
   toTopVariants,
   toRightVariants,
   toBottomVariants,
+  fadeInVariants,
 } from '../common';
 import { RootState } from '../store/reducers';
 import { getProfilePosts } from '../store/actionCreators/postAction';
@@ -45,11 +46,11 @@ const Profile: NextPage = () => {
   };
 
   const [isSticky, setSticky] = useState(false);
-  const handleEnter = () => {
-    setSticky(true);
-  };
-  const handleLeave = () => {
+  const handleEnter = () => {    
     setSticky(false);
+  };
+  const handleLeave = () => {    
+    setSticky(true);
   };
   return (
     <div className="cs-main-bg-theme fixed pb-12">
@@ -59,57 +60,67 @@ const Profile: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
-      <nav
-        aria-label="Breadcrumb"
-        className={`cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-2 lg:px-16 fixed z-10 ${
-          isSticky ? 'hidden' : ''
-        }`}
-      >
-        <div className="flex cursor-pointer" onClick={scrollToTop}>
-          <div className="relative h-12 w-12 my-1 items-center justify-center content-center">
-            <Image
-              className="rounded-full"
-              src="/img/me.jpg"
-              alt="me"
-              layout="fill"
-              // width={120}
-              // height={120}
-              objectFit="cover"
-            />
-          </div>
-          <div className="flex items-center ml-4">Mike Chen</div>
-        </div>
-        <div>
-          <div className={`my-2 flex flex-row justify-between`}>
-            <div className="flex mx-2 cs-btn-border-style items-center">
-              <FontAwesomeIcon
-                icon={['fas', 'user-friends']}
-                className="icon-common mr-2 "
-              ></FontAwesomeIcon>
-              <div></div>
-              <div className="">{t['txt-add-friend']}</div>
-            </div>{' '}
-            <div className="flex mx-2 cs-btn-border-style items-center">
-              <FontAwesomeIcon
-                icon={['fas', 'comments']}
-                className="icon-common mr-2"
-              ></FontAwesomeIcon>
-              <div></div>
-              {t['txt-message']}
+      <AnimatePresence>
+        {isSticky && (
+          <motion.div
+            aria-label="Breadcrumb"
+            className={`cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-2 lg:px-16 fixed z-10 `}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={fadeInVariants}
+          >
+            <div className="flex cursor-pointer" onClick={scrollToTop}>
+              <div className="relative h-12 w-12 my-1 items-center justify-center content-center">
+                <Image
+                  className="rounded-full"
+                  src="/img/me.jpg"
+                  alt="me"
+                  layout="fill"
+                  // width={120}
+                  // height={120}
+                  objectFit="cover"
+                />
+              </div>
+              <div className="flex items-center ml-4">Mike Chen</div>
             </div>
-          </div>
-        </div>
-      </nav>
+            <div>
+              <div className={`my-2 flex flex-row justify-between`}>
+                <div className="flex mx-2 cs-btn-border-style items-center">
+                  <FontAwesomeIcon
+                    icon={['fas', 'user-friends']}
+                    className="icon-common mr-2 "
+                  ></FontAwesomeIcon>
+                  <div></div>
+                  <div className="">{t['txt-add-friend']}</div>
+                </div>{' '}
+                <div className="flex mx-2 cs-btn-border-style items-center">
+                  <FontAwesomeIcon
+                    icon={['fas', 'comments']}
+                    className="icon-common mr-2"
+                  ></FontAwesomeIcon>
+                  <div></div>
+                  {t['txt-message']}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div
         id="scroller"
         className="container mx-auto overflow-y-auto h-full no-scrollbar"
       >
-        <div
-          className="flex-col pt-4"
-        >
+        <div className="flex-col pt-4">
           {/* <ProfileForm /> */}
-          <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white mb-4 flex-col">
+          <motion.div
+            className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white mb-4 flex-col"
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            variants={fadeInVariants}
+          >
             <div className="flex flex-col items-center">
               <div className="relative h-32 w-32 2xl:h-40 2xl:w-40 my-4">
                 <Image
@@ -145,7 +156,7 @@ const Profile: NextPage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col lg:flex-row justify-between mt-2">
             <motion.div
