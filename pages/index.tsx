@@ -16,6 +16,7 @@ import {
   toLeftVariants,
 } from '../common';
 import { demoPosts } from '../fakePosts';
+import {SideMenu} from '../src/components/SideMenu';
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
+      <SideMenu></SideMenu>
+
       <div className="container mx-auto overflow-y-auto lg:overflow-y-hidden h-full no-scrollbar">
         <div className="flex-col">
           {/* <ProfileForm/> */}

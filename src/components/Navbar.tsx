@@ -8,7 +8,6 @@ import { MenuItems } from '../../common';
 import { useTheme } from 'next-themes';
 import {translateMaker, changeLanguage} from '../utils';
 
-
 const Navbar: NextComponentType = () => {
   const router = useRouter();
   const { locale } = router;
@@ -36,12 +35,12 @@ const Navbar: NextComponentType = () => {
           </div>
         </div>
         <div className="flex">
-          <div className="flex lg:hidden items-center content-center justify-center">
+          {/* <div className="flex lg:hidden items-center content-center justify-center">
             <FontAwesomeIcon
               icon={['fas', 'bars']}
               className="icon-common  w-8 h-8"
             ></FontAwesomeIcon>
-          </div>
+          </div> */}
           <div className="hidden lg:flex">
             <ol
               role="list"
