@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 
+import { toggleLike } from '../../store/actionCreators/postAction';
 import { translateMaker } from '../utils';
 import { IPost } from '../../store/reducers/reducerTypes';
 import {
@@ -19,8 +20,15 @@ type PostContentProps = {
 const PostContent = (props: PostContentProps) => {
   const { scrollToTop } = props;
   const { isScrollUp } = props;
-  const { userId, userName, userAvatar, postType, contentObj, isLiked } =
-    props.postItem;
+  const {
+    userId,
+    userName,
+    userAvatar,
+    postType,
+    contentObj,
+    isLiked,
+    postId,
+  } = props.postItem;
   const router = useRouter();
   const t = translateMaker(router);
 
@@ -31,6 +39,9 @@ const PostContent = (props: PostContentProps) => {
     dispatch(setPlayerOpen());
   };
 
+  const dispatchToggleLike = (postId) => {
+    dispatch(toggleLike(postId));
+  };
   return (
     <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white divide-y divide-gray-300 dark:divide-gray-500">
       <div className="px-4 py-2 lg:py-4">
@@ -51,9 +62,9 @@ const PostContent = (props: PostContentProps) => {
               )}
             </div>
           ) : (
-            <div className="relative h-16 w-16 lg:h-20 lg:w-20 2xl:h-28 2xl:w-28 min-w-min aspect-square">
-              {userAvatar.length > 0 && (
-                <Link href={`/user/${userId}`}>
+            <Link href={`/user/${userId}`} passHref>
+              <div className="relative h-16 w-16 lg:h-20 lg:w-20 2xl:h-28 2xl:w-28 min-w-min aspect-square">
+                {userAvatar.length > 0 && (
                   <Image
                     className="rounded-full cursor-pointer"
                     src={userAvatar}
@@ -61,9 +72,9 @@ const PostContent = (props: PostContentProps) => {
                     layout="fill"
                     objectFit="cover"
                   />
-                </Link>
-              )}
-            </div>
+                )}
+              </div>
+            </Link>
           )}
           <div className="flex-col justify-start text-left pl-4">
             {postType === 'album' ? (
@@ -132,7 +143,10 @@ const PostContent = (props: PostContentProps) => {
         )}
       </div>
       <div className="flex justify-center">
-        <div className="cs-post-btn-style rounded-bl-xl flex justify-center text-lg">
+        <div
+          className="cs-post-btn-style rounded-bl-xl flex justify-center text-lg"
+          onClick={() => dispatchToggleLike(postId)}
+        >
           {isLiked ? (
             <FontAwesomeIcon
               icon={['fas', 'thumbs-up']}

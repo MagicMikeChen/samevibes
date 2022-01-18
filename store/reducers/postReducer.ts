@@ -102,6 +102,19 @@ export const postReducer = (
         loading: false,
         error: null,
       };
+      case Action.TOGGLE_LIKE:
+        const newLikeStatus = state.posts.map((item)=>{
+          if(action.payload ===  item.postId){
+           item.isLiked === 0 ?  item.isLiked=1 : item.isLiked=0
+          }
+          return item
+        })
+        return {
+          ...state,
+          posts: newLikeStatus,
+          loading: false,
+          error: null,
+        };
     default:
       return state;
   }

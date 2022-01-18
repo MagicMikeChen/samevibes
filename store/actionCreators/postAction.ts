@@ -24,3 +24,9 @@ export const getProfilePosts = (posts: IPost[]) => async (dispatch: Dispatch<Act
     payload: posts,
   });
 };
+export const toggleLike = (postId: string) => async (dispatch: Dispatch<ActionTypes>) => {
+  dispatch({
+    type: Action.TOGGLE_LIKE,
+    payload: postId,
+  });
+};

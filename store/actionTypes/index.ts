@@ -9,7 +9,8 @@ export enum Action {
   CLOSE_PLAYER = 'CLOSE_PLAYER',
   SET_AUDIO_PLAY = 'SET_AUDIO_PLAY',
   SET_AUDIO_PAUSE = 'SET_AUDIO_PAUSE',
-  GET_CUR_USER = 'GET_CUR_USER'
+  GET_CUR_USER = 'GET_CUR_USER',
+  TOGGLE_LIKE = 'TOGGLE_LIKE',
 }
 
 interface getPost {
@@ -51,5 +52,19 @@ interface getCurUser {
   type: Action.GET_CUR_USER;
   payload: string | string[];
 }
+interface toggleLike {
+  type: Action.TOGGLE_LIKE;
+  payload: string;
+}
 
-export type ActionTypes = getPost | getPosts | setAudioTrack | setAudioPlay | setAudioPause | setPlayerOpen | setPlayerClose | getProfilePosts | getCurUser;
+export type ActionTypes =
+  | getPost
+  | getPosts
+  | setAudioTrack
+  | setAudioPlay
+  | setAudioPause
+  | setPlayerOpen
+  | setPlayerClose
+  | getProfilePosts
+  | getCurUser
+  | toggleLike;

@@ -1,6 +1,6 @@
 export const demoPosts = [
   {
-    postId: '12345',
+    postId: '11001',
     userId: 'user005',
     userName: 'Taliyah Ruiz',
     userAvatar: '/img/g4.jpg',
@@ -25,7 +25,7 @@ export const demoPosts = [
     error: '',
   },
   {
-    postId: '12245',
+    postId: '11002',
     userId: 'user006',
     userName: 'Kelsea Stevenson',
     userAvatar: '/img/g5.jpg',
@@ -50,7 +50,7 @@ export const demoPosts = [
     error: '',
   },
   {
-    postId: '35634',
+    postId: '11003',
     userId: 'user007',
     userName: 'Ashley Mill',
     userAvatar: '/img/g6.jpg',
@@ -75,7 +75,7 @@ export const demoPosts = [
     error: '',
   },
   {
-    postId: '12325',
+    postId: '11004',
     userId: 'user004',
     userName: 'Viki Viki',
     userAvatar: '/img/g3.jpg',
@@ -100,7 +100,7 @@ export const demoPosts = [
     error: '',
   },
   {
-    postId: '12111',
+    postId: '11005',
     userId: 'user009',
     userName: 'Andrew Almond',
     userAvatar: '/img/b1.jpg',
@@ -125,7 +125,7 @@ export const demoPosts = [
     error: '',
   },
   {
-    postId: '12326',
+    postId: '11006',
     userId: 'user010',
     userName: 'Alton Roberts',
     userAvatar: '/img/b2.jpg',

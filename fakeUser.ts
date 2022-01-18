@@ -11,7 +11,7 @@ export const demoProfiles = [
   userJobTitle: 'Frontend Developer',
   userEducation: 'National Yang Ming Chiao Tung University',
   userLocation: 'Taipei',
-  userInstagram: 'https://www.instagram.com/magicmike.taipei',
+  userInstagram: 'magicmike.taipei',
   userRelationship: 'In relationship with Marisa Klodklaw',
   userFavAlbums: [
     {

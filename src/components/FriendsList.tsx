@@ -1,6 +1,8 @@
 import type { NextComponentType } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 import { translateMaker } from '../utils';
 import { demoFriendList } from '../../fakeFriendList';
 
@@ -19,7 +21,9 @@ const FriendsList = () => {
   const t = translateMaker(router);
   return (
     <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-gray-900 dark:text-white content-center items-center text-center relative justify-items-center mt-4 lg:mt-0 lg:ml-4">
-      <div className="cs-gradient-logo-style-light dark:cs-gradient-logo-style-dark text-lg pt-4 font-semibold">{t['txt-recommend-friend']}</div>
+      <div className="cs-gradient-logo-style-light dark:cs-gradient-logo-style-dark text-lg pt-4 font-semibold">
+        {t['txt-recommend-friend']}
+      </div>
       {/* <div>
       <img
         className="inline-block h-32 w-32 rounded-full ring-1 ring-white object-cover"
@@ -33,17 +37,19 @@ const FriendsList = () => {
             return (
               <div key={listItem.userId} className="flex-col py-4">
                 <div className="flex content-center items-center text-center px-2">
-                  <div className="relative h-16 w-16 lg:h-20 lg:w-20 2xl:h-28 2xl:w-28 min-w-min aspect-square">
-                    <Image
-                      className="rounded-full"
-                      src={listItem.userAvatar}
-                      alt="me"
-                      layout="fill"
-                      // width={120}
-                      // height={120}
-                      objectFit="cover"
-                    />
-                  </div>
+                  <Link href={`/user/${listItem.userId}`} passHref>
+                    <div className="relative h-16 w-16 lg:h-20 lg:w-20 2xl:h-28 2xl:w-28 min-w-min aspect-square cursor-pointer">
+                      <Image
+                        className="rounded-full"
+                        src={listItem.userAvatar}
+                        alt="me"
+                        layout="fill"
+                        // width={120}
+                        // height={120}
+                        objectFit="cover"
+                      />
+                    </div>
+                  </Link>
                   <div className="flex-col justify-start text-left pl-4 text-base md:text-lg">
                     <div>{listItem.userName} also likes</div>
                     <div className="flex flex-wrap py-1 text-sm text-gray-100 dark:text-white">
@@ -59,7 +65,9 @@ const FriendsList = () => {
                     </div>
                   </div>
                 </div>
-                <div className="text-xl md:text-2xl py-1">{listItem.matchRate}% Match</div>
+                <div className="text-xl md:text-2xl py-1">
+                  {listItem.matchRate}% Match
+                </div>
               </div>
             );
           })}

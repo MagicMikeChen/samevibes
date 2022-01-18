@@ -14,7 +14,6 @@ interface UserInfoProps {
 const UserInfo: React.FC<UserInfoProps> = (props) => {
   const router = useRouter();
   const t = translateMaker(router);
-  console.log('UserInfo props', props);
   const {
     userIntro,
     userCompany,
@@ -64,7 +63,13 @@ const UserInfo: React.FC<UserInfoProps> = (props) => {
                 icon={['fab', 'instagram']}
                 className="icon-common mr-2 mt-1"
               ></FontAwesomeIcon>
-              <div>{userInstagram}</div>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://www.instagram.com/${userInstagram}`}
+              >
+                {userInstagram}
+              </a>
             </div>
             <div className="flex items-center">
               <FontAwesomeIcon
@@ -84,7 +89,7 @@ const UserInfo: React.FC<UserInfoProps> = (props) => {
                   return (
                     <div key={i} className="relative min-w-min aspect-square">
                       <Image
-                        className="rounded-md"
+                        className="rounded-sm"
                         src={`/img/${item.audioImage}.jpeg`}
                         alt={item.audioTitle}
                         layout="fill"
