@@ -107,7 +107,7 @@ const User: React.FC<UserProps> = (props) => {
 
       <div
         id="scroller"
-        className="container mx-auto overflow-y-auto h-full no-scrollbar"
+        className="container mx-auto overflow-y-auto h-full no-scrollbar pt-16"
       >
         <div className="flex-col pt-4">
           {/* <ProfileForm /> */}
