@@ -25,7 +25,7 @@ const Navbar: NextComponentType = () => {
     }
   };
   return (
-    <div className=''>
+    <div className='fixed top-0 w-screen z-10'>
       <nav
         aria-label="Breadcrumb"
         className="cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-8 lg:px-16"

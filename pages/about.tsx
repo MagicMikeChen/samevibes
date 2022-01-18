@@ -16,7 +16,7 @@ const About: NextPage = () => {
       </Head>
       <Navbar></Navbar>
       <motion.div
-        className="container mx-auto overflow-y-auto h-full no-scrollbar pb-16"
+        className="container mx-auto overflow-y-auto h-full no-scrollbar pb-16 pt-16"
         initial="initial"
         animate="enter"
         exit="exit"
