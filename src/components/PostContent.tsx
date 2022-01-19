@@ -4,7 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 
-import { toggleLike } from '../../store/actionCreators/postAction';
+import {
+  toggleLike,
+  toggleProfileLike,
+} from '../../store/actionCreators/postAction';
 import { translateMaker } from '../utils';
 import { IPost } from '../../store/reducers/reducerTypes';
 import {
@@ -14,12 +17,11 @@ import {
 
 type PostContentProps = {
   postItem: IPost;
-  isScrollUp: boolean;
+  isNotHome: boolean;
   scrollToTop?: (event: React.MouseEvent<HTMLElement>) => void;
 };
 const PostContent = (props: PostContentProps) => {
-  const { scrollToTop } = props;
-  const { isScrollUp } = props;
+  const { scrollToTop, isNotHome } = props;
   const {
     userId,
     userName,
@@ -40,13 +42,17 @@ const PostContent = (props: PostContentProps) => {
   };
 
   const dispatchToggleLike = (postId) => {
-    dispatch(toggleLike(postId));
+    {
+      isNotHome
+        ? dispatch(toggleProfileLike(postId))
+        : dispatch(toggleLike(postId));
+    }
   };
   return (
     <div className="cs-block-style-white-theme dark:cs-block-style-grey-900 text-grey-900 dark:text-white divide-y divide-gray-300 dark:divide-gray-500">
       <div className="px-4 py-2 lg:py-4">
         <div className="flex content-center items-center text-center py-4">
-          {isScrollUp ? (
+          {isNotHome ? (
             <div
               className="relative h-16 w-16 lg:h-20 lg:w-20 2xl:h-28 2xl:w-28 min-w-min aspect-square"
               onClick={scrollToTop}

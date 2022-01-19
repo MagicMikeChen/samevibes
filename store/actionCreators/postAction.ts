@@ -30,3 +30,9 @@ export const toggleLike = (postId: string) => async (dispatch: Dispatch<ActionTy
     payload: postId,
   });
 };
+export const toggleProfileLike = (postId: string) => async (dispatch: Dispatch<ActionTypes>) => {
+  dispatch({
+    type: Action.TOGGLE_PROFILE_LIKE,
+    payload: postId,
+  });
+};

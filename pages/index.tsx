@@ -51,7 +51,7 @@ const Home: NextPage = () => {
                       exit="exit"
                       variants={toTopVariants}
                     >
-                      <PostContent postItem={postItem} isScrollUp={false} ></PostContent>
+                      <PostContent postItem={postItem} isNotHome={false}></PostContent>
                     </motion.div>
                   );
                 })}

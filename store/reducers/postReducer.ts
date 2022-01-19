@@ -1,6 +1,6 @@
 import { Action, ActionTypes } from '../actionTypes';
 import { IPostReducer } from './reducerTypes';
-import { demoPosts } from '../../fakePosts';
+import { demoPosts, hiddenDemoPost } from '../../fakePosts';
 const initialState = {
   profilePosts: [
     {
@@ -98,7 +98,7 @@ export const postReducer = (
     case Action.GET_PROFILE_POSTS:
       return {
         ...state,
-        profilePosts: demoPosts.filter((item) =>
+        profilePosts: [...demoPosts, ...hiddenDemoPost].filter((item) =>
           [action.payload].includes(item.userId)
         ),
         loading: false,
@@ -114,6 +114,19 @@ export const postReducer = (
       return {
         ...state,
         posts: newLikeStatus,
+        loading: false,
+        error: null,
+      };
+    case Action.TOGGLE_PROFILE_LIKE:
+      const newProfileLikeStatus = state.profilePosts.map((item) => {
+        if (action.payload === item.postId) {
+          item.isLiked === 0 ? (item.isLiked = 1) : (item.isLiked = 0);
+        }
+        return item;
+      });
+      return {
+        ...state,
+        profilePosts: newProfileLikeStatus,
         loading: false,
         error: null,
       };

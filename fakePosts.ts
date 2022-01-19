@@ -149,6 +149,10 @@ export const demoPosts = [
     loading: false,
     error: '',
   },
+  
+];
+
+export const hiddenDemoPost = [
   {
     postId: '13241',
     userId: 'user001',
@@ -300,4 +304,4 @@ export const demoPosts = [
     loading: false,
     error: '',
   },
-];
+]

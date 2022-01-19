@@ -11,6 +11,7 @@ export enum Action {
   SET_AUDIO_PAUSE = 'SET_AUDIO_PAUSE',
   GET_CUR_USER = 'GET_CUR_USER',
   TOGGLE_LIKE = 'TOGGLE_LIKE',
+  TOGGLE_PROFILE_LIKE = 'TOGGLE_PROFILE_LIKE',
 }
 
 interface getPost {
@@ -57,6 +58,10 @@ interface toggleLike {
   payload: string;
 }
 
+interface toggleProfileLike {
+  type: Action.TOGGLE_PROFILE_LIKE;
+  payload: string;
+}
 export type ActionTypes =
   | getPost
   | getPosts
@@ -67,4 +72,5 @@ export type ActionTypes =
   | setPlayerClose
   | getProfilePosts
   | getCurUser
-  | toggleLike;
+  | toggleLike
+  | toggleProfileLike;

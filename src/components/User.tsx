@@ -17,11 +17,11 @@ import { ICurUser } from '../../store/reducers/reducerTypes';
 
 interface UserProps {
   userProfile: ICurUser;
-  isScrollUp: boolean;
+  isNotHome: boolean;
   isProfile?: boolean;
 }
 const User: React.FC<UserProps> = (props) => {
-  const { isScrollUp = false, isProfile } = props;
+  const { isNotHome = false, isProfile } = props;
   const { userAvatar, userName, userId } = props.userProfile;
   
   const dispatch = useDispatch();
@@ -192,7 +192,7 @@ const User: React.FC<UserProps> = (props) => {
                       <div key={postItem.postId} className="mb-4">
                         <PostContent
                           postItem={postItem}
-                          isScrollUp={isScrollUp}
+                          isNotHome={isNotHome}
                           scrollToTop={scrollToTop}
                         ></PostContent>
                       </div>
