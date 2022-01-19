@@ -7,6 +7,7 @@ import Navbar from '../src/components/Navbar';
 import User from '../src/components/User';
 import {getCurUser} from '../store/actionCreators/userAction';
 import { RootState } from '../store/reducers';
+import {SideMenu} from '../src/components/SideMenu';
 
 const Profile: NextPage = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Profile: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
+      <SideMenu></SideMenu>
       <User userProfile={curUserProfile} isScrollUp={true}></User>
     </div>
   );

@@ -61,7 +61,7 @@ const User: React.FC<UserProps> = (props) => {
         {isSticky && (
           <motion.div
             aria-label="Breadcrumb"
-            className={`cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-2 lg:px-16 fixed z-10 `}
+            className={`cs-navbar-style-light dark:cs-navbar-style-dark flex justify-between px-2 lg:px-16 fixed top-[60px] z-10 `}
             initial="initial"
             animate="enter"
             exit="exit"

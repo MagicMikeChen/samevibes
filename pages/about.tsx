@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 import Navbar from '../src/components/Navbar';
 import { toTopVariants } from '../common';
+import {SideMenu} from '../src/components/SideMenu';
 
 const About: NextPage = () => {
   return (
@@ -15,6 +16,7 @@ const About: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
+      <SideMenu></SideMenu>
       <motion.div
         className="container mx-auto overflow-y-auto h-full no-scrollbar pb-16 pt-16"
         initial="initial"

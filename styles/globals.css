@@ -155,57 +155,10 @@ input[type='range']::-webkit-slider-thumb {
   width: 100%;
   perspective: 2000;
 }
-.cs-sidemenu-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100vw;
-  height: 100%;
-  z-index: 1;
-  background-color: #753a88;
-}
-.cs-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  z-index: 10001;
-}
-.cs-sidemenu-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  background: #fff;
-  z-index: 10000;
-}
 
-.cs-ul {
-  padding: 16px;
-  position: absolute;
-  left: 16px;
-  top: 80px;
-  width: 230px;
-  z-index: 10000;
-
-}
-.cs-li {
-  list-style: none;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-
-.cs-button {
+.cs-side-memu-toggle {
   outline: none;
   border: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   cursor: pointer;
   position: absolute;
   top: 8px;
@@ -214,6 +167,5 @@ input[type='range']::-webkit-slider-thumb {
   height: 50px;
   border-radius: 50%;
   background: transparent;
-  z-index: 10002;
-
+  z-index: 10001;
 }

@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 import Navbar from '../src/components/Navbar';
 import { zWaveVariants, toTopVariants } from '../common';
+import {SideMenu} from '../src/components/SideMenu';
 
 const Price: NextPage = () => {
   const x = useMotionValue(0);
@@ -20,6 +21,7 @@ const Price: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar></Navbar>
+      <SideMenu></SideMenu>
       <motion.div
         className="container mx-auto overflow-y-auto lg:overflow-y-hidden h-full no-scrollbar relative flex justify-center items-center"
         initial="initial"

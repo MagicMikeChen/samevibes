@@ -5,15 +5,15 @@ const Path = props => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
+    // stroke="hsl(0, 0%, 50%)"
     strokeLinecap="round"
     {...props}
   />
 );
 
-export const MenuToggle = ({ toggle }) => (
-  <button onClick={toggle} className="cs-button">
-    <svg width="36" height="36" viewBox="0 0 23 23">
+export const MenuToggleButton = ({ toggle }) => (
+  <button onClick={toggle} className="cs-side-memu-toggle">
+    <svg width="36" height="36" viewBox="0 0 23 23" className="stroke-gray-600 dark:stroke-gray-400">
       <Path
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },
