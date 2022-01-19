@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ProfileForm from '../../src/components/ProfileForm';
 import PostContent from '../../src/components/PostContent';
 import { translateMaker } from '../../src/utils';
-import { myDemoPosts, toTopVariants, fadeInVariants } from '../../common';
+import { toTopVariants, fadeInVariants } from '../../common';
 import { RootState } from '../../store/reducers';
 import { getProfilePosts } from '../../store/actionCreators/postAction';
 import UserInfo from '../components/UserInfo';
@@ -22,15 +22,16 @@ interface UserProps {
 }
 const User: React.FC<UserProps> = (props) => {
   const { isScrollUp = false, isProfile } = props;
-  const { userAvatar, userName } = props.userProfile;
+  const { userAvatar, userName, userId } = props.userProfile;
+  
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProfilePosts(myDemoPosts));
-  }, []);
-
+    dispatch(getProfilePosts(userId));
+  }, [userId]);
+  
   const profilePosts = useSelector(
     (state: RootState) => state.postsState.profilePosts
-  );
+    );
 
   const router = useRouter();
   const t = translateMaker(router);

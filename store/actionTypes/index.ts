@@ -25,7 +25,7 @@ interface getPosts {
 
 interface getProfilePosts {
   type: Action.GET_PROFILE_POSTS;
-  payload: IPost[];
+  payload: string;
 }
 interface setAudioTrack {
   type: Action.SET_AUDIO_TRACK;

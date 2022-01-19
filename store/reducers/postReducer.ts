@@ -1,6 +1,6 @@
 import { Action, ActionTypes } from '../actionTypes';
 import { IPostReducer } from './reducerTypes';
-
+import { demoPosts } from '../../fakePosts';
 const initialState = {
   profilePosts: [
     {
@@ -98,23 +98,25 @@ export const postReducer = (
     case Action.GET_PROFILE_POSTS:
       return {
         ...state,
-        profilePosts: action.payload,
+        profilePosts: demoPosts.filter((item) =>
+          [action.payload].includes(item.userId)
+        ),
         loading: false,
         error: null,
       };
-      case Action.TOGGLE_LIKE:
-        const newLikeStatus = state.posts.map((item)=>{
-          if(action.payload ===  item.postId){
-           item.isLiked === 0 ?  item.isLiked=1 : item.isLiked=0
-          }
-          return item
-        })
-        return {
-          ...state,
-          posts: newLikeStatus,
-          loading: false,
-          error: null,
-        };
+    case Action.TOGGLE_LIKE:
+      const newLikeStatus = state.posts.map((item) => {
+        if (action.payload === item.postId) {
+          item.isLiked === 0 ? (item.isLiked = 1) : (item.isLiked = 0);
+        }
+        return item;
+      });
+      return {
+        ...state,
+        posts: newLikeStatus,
+        loading: false,
+        error: null,
+      };
     default:
       return state;
   }
