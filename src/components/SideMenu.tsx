@@ -46,16 +46,16 @@ const navVariants = {
 };
 export const SideMenu = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
+  // const containerRef = useRef(null);
+  // const { height } = useDimensions(containerRef);
 
   return (
     <motion.div
-      className="lg:hidden overflow-y-hidden"
+      className="lg:hidden overflow-y-hidden 100vh"
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
-      custom={height}
-      ref={containerRef}
+      // custom={height}
+      // ref={containerRef}
     >
         <motion.div
           className="absolute top-0 right-0 w-2/3 md:w-1/2 z-30 bg-white bg-opacity-95 dark:bg-blue-950 h-full"
@@ -73,7 +73,7 @@ export const SideMenu = () => {
           </motion.div>
         </motion.div>
         {isOpen && (
-          <motion.div className="absolute top-0 left-0 w-screen h-screen z-10 bg-black bg-opacity-10" onClick={() => toggleOpen()}></motion.div>
+          <motion.div className="fixed top-0 left-0 w-screen h-screen z-10 bg-black bg-opacity-10" onClick={() => toggleOpen()}></motion.div>
         )}
         <MenuToggleButton toggle={() => toggleOpen()} />
     </motion.div>
