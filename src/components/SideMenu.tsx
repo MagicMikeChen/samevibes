@@ -51,7 +51,7 @@ export const SideMenu = () => {
 
   return (
     <motion.div
-      className="lg:hidden"
+      className="lg:hidden overflow-y-hidden"
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
       custom={height}
