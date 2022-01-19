@@ -9,23 +9,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ProfileForm from '../../src/components/ProfileForm';
 import PostContent from '../../src/components/PostContent';
 import { translateMaker } from '../../src/utils';
-import {
-  myDemoPosts,
-  toTopVariants,
-  fadeInVariants,
-} from '../../common';
+import { myDemoPosts, toTopVariants, fadeInVariants } from '../../common';
 import { RootState } from '../../store/reducers';
 import { getProfilePosts } from '../../store/actionCreators/postAction';
 import UserInfo from '../components/UserInfo';
-import {ICurUser} from '../../store/reducers/reducerTypes';
+import { ICurUser } from '../../store/reducers/reducerTypes';
 
 interface UserProps {
-  userProfile: ICurUser
-  isScrollUp: boolean
+  userProfile: ICurUser;
+  isScrollUp: boolean;
+  isProfile?: boolean;
 }
 const User: React.FC<UserProps> = (props) => {
-  const { isScrollUp = false } = props
-  const { userAvatar, userName } = props.userProfile
+  const { isScrollUp = false, isProfile } = props;
+  const { userAvatar, userName } = props.userProfile;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProfilePosts(myDemoPosts));
@@ -49,10 +46,10 @@ const User: React.FC<UserProps> = (props) => {
   };
 
   const [isSticky, setSticky] = useState(false);
-  const handleEnter = () => {    
+  const handleEnter = () => {
     setSticky(false);
   };
-  const handleLeave = () => {    
+  const handleLeave = () => {
     setSticky(true);
   };
   return (
@@ -83,14 +80,25 @@ const User: React.FC<UserProps> = (props) => {
             </div>
             <div>
               <div className={`my-2 flex flex-row justify-between`}>
-                <div className="flex mx-2 cs-btn-border-style items-center">
-                  <FontAwesomeIcon
-                    icon={['fas', 'user-friends']}
-                    className="icon-common mr-2 "
-                  ></FontAwesomeIcon>
-                  <div></div>
-                  <div className="">{t['txt-add-friend']}</div>
-                </div>{' '}
+                {isProfile ? (
+                  <div className="flex mx-2 cs-btn-border-style items-center">
+                    <FontAwesomeIcon
+                      icon={['fas', 'user-edit']}
+                      className="icon-common mr-2 "
+                    ></FontAwesomeIcon>
+                    <div></div>
+                    <div className="">Edit Profile</div>
+                  </div>
+                ) : (
+                  <div className="flex mx-2 cs-btn-border-style items-center">
+                    <FontAwesomeIcon
+                      icon={['fas', 'user-friends']}
+                      className="icon-common mr-2 "
+                    ></FontAwesomeIcon>
+                    <div></div>
+                    <div className=""> {t['txt-add-friend']}</div>
+                  </div>
+                )}
                 {/* <div className="flex mx-2 cs-btn-border-style items-center">
                   <FontAwesomeIcon
                     icon={['fas', 'comments']}
@@ -135,14 +143,25 @@ const User: React.FC<UserProps> = (props) => {
               </div>
               <Waypoint onEnter={handleEnter} onLeave={handleLeave} />
               <div className={`text-center my-4 flex flex-row`}>
-                <div className="flex items-center mx-2 cs-btn-border-style">
-                  <FontAwesomeIcon
-                    icon={['fas', 'user-friends']}
-                    className="icon-common mr-2"
-                  ></FontAwesomeIcon>
-                  <div></div>
-                  <div className="">{t['txt-add-friend']}</div>
-                </div>{' '}
+                {isProfile ? (
+                  <div className="flex mx-2 cs-btn-border-style items-center">
+                    <FontAwesomeIcon
+                      icon={['fas', 'user-edit']}
+                      className="icon-common mr-2 "
+                    ></FontAwesomeIcon>
+                    <div></div>
+                    <div className="">Edit Profile</div>
+                  </div>
+                ) : (
+                  <div className="flex mx-2 cs-btn-border-style items-center">
+                    <FontAwesomeIcon
+                      icon={['fas', 'user-friends']}
+                      className="icon-common mr-2 "
+                    ></FontAwesomeIcon>
+                    <div></div>
+                    <div className=""> {t['txt-add-friend']}</div>
+                  </div>
+                )}
                 {/* <div className="flex items-center mx-2 cs-btn-border-style">
                   <FontAwesomeIcon
                     icon={['fas', 'comments']}
@@ -170,7 +189,11 @@ const User: React.FC<UserProps> = (props) => {
                   {profilePosts.map((postItem) => {
                     return (
                       <div key={postItem.postId} className="mb-4">
-                        <PostContent postItem={postItem} isScrollUp={isScrollUp} scrollToTop={scrollToTop}></PostContent>
+                        <PostContent
+                          postItem={postItem}
+                          isScrollUp={isScrollUp}
+                          scrollToTop={scrollToTop}
+                        ></PostContent>
                       </div>
                     );
                   })}

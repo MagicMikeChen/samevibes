@@ -25,7 +25,7 @@ const Profile: NextPage = () => {
       </Head>
       <Navbar></Navbar>
       <SideMenu></SideMenu>
-      <User userProfile={curUserProfile} isScrollUp={true}></User>
+      <User userProfile={curUserProfile} isScrollUp={true} isProfile={true}></User>
     </div>
   );
 };
