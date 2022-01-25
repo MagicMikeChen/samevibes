@@ -88,7 +88,7 @@ const User: React.FC<UserProps> = (props) => {
                       className="icon-common mr-2 "
                     ></FontAwesomeIcon>
                     <div></div>
-                    <div className="">Edit Profile</div>
+                    <div className="">{t['txt-edit-profile']}</div>
                   </div>
                 ) : (
                   <div className="flex mx-2 cs-btn-border-style items-center">
@@ -151,7 +151,7 @@ const User: React.FC<UserProps> = (props) => {
                       className="icon-common mr-2 "
                     ></FontAwesomeIcon>
                     <div></div>
-                    <div className="">Edit Profile</div>
+                    <div className="">{t['txt-edit-profile']}</div>
                   </div>
                 ) : (
                   <div className="flex mx-2 cs-btn-border-style items-center">

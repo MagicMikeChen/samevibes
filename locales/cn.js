@@ -1,4 +1,8 @@
 export const cn = {
+  'txt-will-attend': '會參加',
+  'txt-also-likes': '也喜歡',
+  'txt-match': '配對率',
+  'txt-edit-profile': '編輯資料',
   'txt-about': "關於作者",
   'txt-price': '費用',
   'txt-home': '首頁',

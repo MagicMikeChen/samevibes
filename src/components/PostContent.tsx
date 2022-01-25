@@ -92,7 +92,7 @@ const PostContent = (props: PostContentProps) => {
             ) : (
               <div className="lg:text-lg">
                 <span className="">{userName}</span>
-                <span className="pl-2">will attend</span>
+                <span className="pl-2">{t['txt-will-attend']}</span>
                 <span className="pl-1">{contentObj.contentTitle}</span>
               </div>
             )}

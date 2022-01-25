@@ -1,4 +1,8 @@
 export const en = {
+  'txt-will-attend': 'will attend',
+  'txt-also-likes': 'also likes',
+  'txt-match': 'Match',
+  'txt-edit-profile': 'Edit Profile',
   'txt-about': "About",
   'txt-price': 'Price',
   'txt-home': 'Home',

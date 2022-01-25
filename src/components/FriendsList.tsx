@@ -38,7 +38,7 @@ const FriendsList = () => {
               <div key={listItem.userId} className="flex-col py-4">
                 <div className="flex content-center items-center text-center px-2">
                   <Link href={`/user/${listItem.userId}`} passHref>
-                    <div className="relative h-16 w-16 lg:h-20 lg:w-20 2xl:h-28 2xl:w-28 min-w-min aspect-square cursor-pointer">
+                    <div className="relative h-16 w-16 lg:h-20 lg:w-20 2xl:h-24 2xl:w-24 min-w-min aspect-square cursor-pointer">
                       <Image
                         className="rounded-full"
                         src={listItem.userAvatar}
@@ -50,8 +50,8 @@ const FriendsList = () => {
                       />
                     </div>
                   </Link>
-                  <div className="flex-col justify-start text-left pl-4 text-base md:text-lg">
-                    <div>{listItem.userName} also likes</div>
+                  <div className="flex-col justify-start text-left pl-4 text-sm md:text-base">
+                    <div>{listItem.userName} {t['txt-also-likes']}</div>
                     <div className="flex flex-wrap py-1 text-sm text-gray-100 dark:text-white">
                       <div className="flex justify-center items-center content-center text-center px-1 bg-orange-400 rounded-full mr-1 mb-1">
                         {listItem.hobbes[0]}
@@ -65,8 +65,8 @@ const FriendsList = () => {
                     </div>
                   </div>
                 </div>
-                <div className="text-xl md:text-2xl py-1">
-                  {listItem.matchRate}% Match
+                <div className="text-lg md:text-xl py-1">
+                  {listItem.matchRate}% {t['txt-match']}
                 </div>
               </div>
             );
